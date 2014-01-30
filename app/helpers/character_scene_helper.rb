@@ -1,0 +1,2 @@
+module CharacterSceneHelper
+end

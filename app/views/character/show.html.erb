@@ -1,0 +1,28 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{@character.name} #{content_tag( 'span', link_to( 'Edit', character_edit_url))}".html_safe ) %>
+</div>
+
+<div class="columns columns2 cm">
+	<div class="column">
+		<%= render :partial => 'character_details', :object => @character %>
+	</div>
+	<div class="column">
+		<div id="graphviz"></div>
+		<%= render :partial => 'shared/graphviz', :object => character_neighbours_url( :format => 'json' ), :locals => {:height => 200, :width => 500, :charge => -320, :link_distance => 80} %>
+	</div>
+</div>
+
+<%= render :partial => 'relationships', :object => @character.relationships unless @character.relationships.empty? %>
+<%= render :partial => 'major_storylines', :object => @character.major_storylines unless @character.major_storylines.empty? %>
+<%= render :partial => 'minor_storylines', :object => @character.minor_storylines unless @character.minor_storylines.empty? %>
+<%= render :partial => 'scenes', :object => @character.scenes unless @character.scenes.empty? %>
+<%= render :partial => 'names', :object => @character.character_names %>
+<%= render :partial => 'notes', :object => @character.character_notes %>
+
+
+<div class="section">
+	<%= content_tag( 'h2', 'Delete' ) %>
+	<%= form_for @character, :url => { :action => 'delete' } do |f| %>
+		<%= submit_tag( 'Delete character', data: { confirm: 'Are you sure?' } ) %>
+	<% end %>
+</div>

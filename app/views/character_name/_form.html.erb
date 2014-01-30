@@ -1,0 +1,38 @@
+<%= render :partial => 'shared/error_message', :object => @name %>
+
+<%= form.hidden_field( :character_id ) %>
+
+<table class="section">
+	<tbody>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Old name:', :for => 'character_name_old_name' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_field 'old_name' ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'New name:', :for => 'character_name_new_name' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_field 'new_name' ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Date:', :for => 'character_name_date_1i' ) %>
+			</th>
+			<%= content_tag( 'td', form.date_select( 'date', :start_year => 1800, :include_blank => true ), :class => 'date-select' ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Note:', :for => 'character_name_note' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_area 'note' ) ) %>
+		</tr>	
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Known as:', :for => 'character_known_as' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.check_box 'known_as' ) ) %>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,169 @@
+/* header */
+.header {
+	background-color: #000;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+
+/* masthead */
+.masthead {
+	padding: 1em;
+}
+
+/* nav */
+.nav {
+	margin-left: 3em;
+}
+.nav li {
+	float: left;
+}
+.nav li a {
+	display: block;
+	margin-right: .2em;
+	padding: .5em;
+}
+
+/* main block */
+.main {
+	margin: 127px 3em 1em;
+	padding: 1em;
+}
+.main p {
+	padding-bottom: 1em;
+}
+.main p.tip {
+	padding-bottom: 0;
+}
+.main li p {
+	padding-bottom: .5em;
+}
+
+/* flash notice */
+#flash-notice {
+	border-width: 2px;
+	height: 2em;
+	line-height: 2em;
+	padding: 1em;
+	vertical-align: middle;
+}
+
+/* error messages */
+#error-message p {
+	padding-bottom: .3em;
+}
+
+/* columns */
+.columns .column {
+	float: left;
+}
+.columns3 .column {
+	width: 30%;
+}
+.columns2 .column {
+	width: 50%;
+}
+
+/* tables */
+th, td {
+	padding: .2em .3em;
+}
+
+/* section */
+.section {
+	margin-bottom: 2em;
+}
+
+/* headings */
+h1 {
+	border-width: 0 0 1px;
+	margin-bottom: 1em;
+	padding-bottom: .5em;
+}
+h2 {
+	border-width: 0 0 1px;
+	margin-bottom: 1em;
+	padding-bottom: .5em;
+}
+h3 {
+	padding-bottom: .5em;
+}
+
+/* view switcher */
+.view-switcher {
+	padding-bottom: 1em;
+}
+.view-switcher li {
+	float: left;
+	margin-right: 1em;
+}
+.view-switcher li a {
+	padding: .5em;
+}
+
+/* Next / previous */
+.previous-next a span {
+	display: block;
+}
+.previous {
+	float: left;
+	width: 400px;
+}
+.next {
+	float: right;
+	text-align: right;
+	width: 400px;
+}
+
+/* Forms */
+form th {
+	vertical-align: top;
+	width: 200px;
+}
+form td input, form td textarea, form td select {
+	width: 500px;
+}
+form td select.multiselect, form td textarea {
+	height: 100px;
+}
+form .submit {
+	margin-left: 210px;
+}
+form .date-select select {
+	display: inline;
+	width: 10em;
+}
+form .time-select select {
+	display: inline;
+	width: 4em;
+}
+form input.duration {
+	width: 4em;
+}
+
+/* list item buttons */
+li .buttons li {
+	float: left;
+	margin: 0 .5em 1.5em 0;
+}
+li .buttons a, li .buttons input {
+	border-width: 1px;
+	border-radius: .3em;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	padding: 0 1em;
+	vertical-align: middle;
+}
+
+/* footer */
+#footer {
+	margin-bottom: 2em;
+}
+
+/* hide old stuff */
+#beats {
+	display: none;
+}

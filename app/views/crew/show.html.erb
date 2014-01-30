@@ -1,0 +1,17 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{@crew.name} #{content_tag( 'span', link_to( 'Edit', crew_edit_url))}".html_safe ) %>
+</div>
+<%= render :partial => 'crew_details', :object => @crew %>
+
+<%= render :partial => 'involvements', :object => @crew.written_episodes, :locals => {:title => 'Wrote'} unless @crew.written_episodes.empty? %>
+<%= render :partial => 'involvements', :object => @crew.produced_episodes, :locals => {:title => 'Produced'} unless @crew.produced_episodes.empty? %>
+<%= render :partial => 'involvements', :object => @crew.edited_episodes, :locals => {:title => 'Edited'} unless @crew.edited_episodes.empty? %>
+<%= render :partial => 'involvements', :object => @crew.directed_episodes, :locals => {:title => 'Directed'} unless @crew.directed_episodes.empty? %>
+<%= render :partial => 'involvements', :object => @crew.researched_episodes, :locals => {:title => 'Researched'} unless @crew.researched_episodes.empty? %>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Delete' ) %>
+	<%= form_for @crew, :url => { :action => 'delete' } do |f| %>
+		<%= submit_tag( 'Delete crew member', data: { confirm: 'Are you sure?' } ) %>
+	<% end %>
+</div>

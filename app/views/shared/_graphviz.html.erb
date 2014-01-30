@@ -1,0 +1,69 @@
+<script>
+	var height = <%= height %>, width = <%= width %>;
+	
+	var color = d3.scale.category20();
+	
+	var force = d3.layout.force()
+		.charge( <%= charge %> )
+		.linkDistance( <%= link_distance %> )
+		.size( [width, height] );
+		
+	var svg = d3.select( "div#graphviz" ).append( "svg" )
+		.attr( "width", width )
+		.attr( "height", height );
+		
+	d3.json( '<%= graphviz %>', function( error, graph ) {
+		force
+		.nodes( graph.nodes )
+		.links( graph.links )
+		.start();
+		
+		var link = svg.selectAll( ".link" )
+			.data( graph.links )
+			.enter().append( "line" )
+			.attr( "class", "link" );
+	
+		// grouping node for circle and text label
+		var g = svg.selectAll( "g.node" )
+				.data( graph.nodes )
+				.enter()
+				.append( "g" )
+			    .on( "mouseover", mouseover )
+			    .on( "mouseout", mouseout )
+				.classed( "gnode", true );
+			
+		var node = g.append( "circle" )
+			.attr( "class", "node" )
+			.attr( "r", 8 )
+			.call( force.drag );		
+	
+		g.append( "text" )
+			.attr( "dx", 8 ) // move text away from circles	
+			.attr( "dy", 4 )
+			.text( function( d ) { return d.name; } );
+		
+		force.on( "tick", function() {
+			// move lines around
+			link.attr( "x1", function( d ) { return d.source.x; } )
+				.attr( "y1", function( d ) { return d.source.y; } )
+				.attr( "x2", function( d ) { return d.target.x; } )
+				.attr( "y2", function( d ) { return d.target.y; } );
+			// move group nodes around	
+			g.attr( "transform", function( d ) {
+					return 'translate( '+ [d.x, d.y]+' )';
+			});
+		});
+	
+		function mouseover() {
+		  d3.select( this ).select( "circle" ).transition()
+		      .duration( 750 )
+		      .attr( "r", 16 );
+		}
+
+		function mouseout() {
+		  d3.select( this ).select( "circle" ).transition()
+		      .duration( 750 )
+		      .attr( "r", 8 );
+		}
+	});
+</script>

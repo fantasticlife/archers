@@ -1,0 +1,8 @@
+<div class="section">
+	<%= content_tag( 'h1', "Add a new storyline" ) %>
+</div>
+
+<%= form_for @storyline, :url => { :action => 'create' } do |f| %>
+	<%= render :partial => 'form', :object => f %>
+  	<%= submit_tag( 'Add storyline', :class => 'submit' ) %>
+<% end %>

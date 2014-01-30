@@ -1,0 +1,38 @@
+cross scene event references
+- expose
+- make editable
+
+event to event references
+- expose
+- make editable
+
+involvement.description
+- expose
+- make editable
+
+
+
+
+general validation
+- relationship types
+- characters
+- places
+- scenes
+- storylines
+- episodes
+join tables:
+- relationships
+- locations
+- involvements
+- minor_characters
+- major_characters
+- scenes_storylines
+- cross_scene_event_references
+- event_to_event_references
+
+
+
+ignore for now:
+- non-linear narrative (time flips)
+- scene has 2 events
+- date entry as text fields not selects?

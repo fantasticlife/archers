@@ -1,0 +1,16 @@
+# switch database.yml to doctor who
+
+cd Documents/Work/Code/Rails/projects/_continuity/homefront/db/setup/doctorwho/
+
+mysql -uroot
+drop database drwho_development;
+create database drwho_development;
+exit
+
+mysql -uroot drwho_development < myth_dump.sql
+mysql -uroot drwho_development < tidy.sql
+
+rvm use 1.9.3-p125
+rake drwho_munge_scenes
+
+mysql -uroot drwho_development < tidy2.sql

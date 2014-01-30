@@ -1,0 +1,21 @@
+/* Taken from
+http://positioniseverything.net/easyclearing.html
+------------------------------ */
+.cm:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+.cm {
+	display: inline-table;
+}
+/* Hides from IE-mac \*/
+* html .cm {
+	height: 1%;
+}
+.cm {
+	display: block;
+}
+/* End hide from IE-mac */

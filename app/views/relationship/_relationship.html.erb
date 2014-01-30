@@ -1,0 +1,10 @@
+<tr>
+	<%= content_tag( 'td', link_to( relationship.from_character.name, character_show_url( :character => relationship.from_character ) ) ) %>
+	<%= content_tag( 'td', relationship.label ) %>
+	<%= content_tag( 'td', link_to( relationship.to_character.name, character_show_url( :character => relationship.to_character ) ) ) %>
+	<td>
+		<%= form_for relationship, :url => { :action => 'delete', :relationship => relationship } do |f| %>
+			<%= submit_tag( 'Delete relationship', data: { confirm: 'Are you sure?' } ) %>
+		<% end %>
+	</td>
+</tr>

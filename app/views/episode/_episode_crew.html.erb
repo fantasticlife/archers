@@ -1,0 +1,37 @@
+<div class="section">
+	<%= content_tag( 'h2', 'Crew' ) %>
+	<table>
+		<tbody>
+			<% if episode_crew.writer %>
+				<tr>
+					<%= content_tag( 'th', 'Writer:' ) %>
+					<%= content_tag( 'td', link_to( episode_crew.writer.name, crew_show_url( :crew => episode_crew.writer ) ) ) %>
+				</tr>
+			<% end -%>
+			<% if episode_crew.producer %>
+				<tr>
+					<%= content_tag( 'th', 'Producer:' ) %>
+					<%= content_tag( 'td', link_to( episode_crew.producer.name, crew_show_url( :crew => episode_crew.producer ) ) ) %>
+				</tr>
+			<% end -%>
+			<% if episode_crew.editor %>
+				<tr>
+					<%= content_tag( 'th', 'Editor:' ) %>
+					<%= content_tag( 'td', link_to( episode_crew.editor.name, crew_show_url( :crew => episode_crew.editor ) ) ) %>
+				</tr>
+			<% end -%>
+			<% if episode_crew.director %>
+				<tr>
+					<%= content_tag( 'th', 'Director:' ) %>
+					<%= content_tag( 'td', link_to( episode_crew.director.name, crew_show_url( :crew => episode_crew.director ) ) ) %>
+				</tr>
+			<% end -%>
+			<% if episode_crew.researcher %>
+				<tr>
+					<%= content_tag( 'th', 'Researcher:' ) %>
+					<%= content_tag( 'td', link_to( episode_crew.researcher.name, crew_show_url( :crew => episode_crew.researcher ) ) ) %>
+				</tr>
+			<% end -%>
+		</tbody>
+	</table>
+</div>

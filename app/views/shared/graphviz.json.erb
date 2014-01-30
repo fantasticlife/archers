@@ -1,0 +1,8 @@
+{
+  "nodes":[
+	<%= render( :partial => 'shared/node', :collection => @nodes ) unless @nodes.empty? %>
+  ],
+  "links":[
+	<%= render( :partial => 'shared/edge', :collection => @edges ) unless @edges.empty? %>
+  ]
+}

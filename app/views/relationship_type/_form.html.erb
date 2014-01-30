@@ -1,0 +1,12 @@
+<%= render :partial => 'shared/error_message', :object => @relationship_type %>
+
+<table>
+	<tbody>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Name:', :for => 'relationship_type_label' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_field 'label', :maxlength => 255 ) ) %>
+		</tr>
+	</tbody>
+</table>

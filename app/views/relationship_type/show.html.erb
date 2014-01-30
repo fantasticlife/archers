@@ -1,0 +1,12 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{@relationship_type.label} #{content_tag( 'span', link_to( 'Edit', relationship_type_edit_url ) )}".html_safe ) %>
+</div>
+
+<%= render :partial => 'relationships', :object => @relationship_type.relationships unless @relationship_type.relationships.empty? %>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Delete' ) %>
+	<%= form_for @relationship_type, :url => { :action => 'delete' } do |f| %>
+		<%= submit_tag( 'Delete relationship_type', data: { confirm: 'Are you sure?' } ) %>
+	<% end %>
+</div>

@@ -1,0 +1,15 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{@storyline.title} #{content_tag( 'span', link_to( 'Edit', storyline_edit_url))}".html_safe ) %>
+</div>
+
+<%= render :partial => 'storyline_details', :object => @storyline %>
+<%= render :partial => 'scenes', :object => @storyline unless @storyline.scenes.empty? %>
+<%= render :partial => 'major_characters', :object => @storyline unless @storyline.major_character_characters.empty? %>
+<%= render :partial => 'minor_characters', :object => @storyline unless @storyline.minor_character_characters.empty? %>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Delete' ) %>
+	<%= form_for @storyline, :url => { :action => 'delete' } do |f| %>
+		<%= submit_tag( 'Delete storyline', data: { confirm: 'Are you sure?' } ) %>
+	<% end %>
+</div>

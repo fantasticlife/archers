@@ -1,0 +1,8 @@
+<div class="section">
+	<%= content_tag( 'h1', 'Add a new relationship type' ) %>
+</div>
+
+<%= form_for @relationship_type, :url => { :action => 'create' } do |f| %>
+	<%= render :partial => 'form', :object => f %>
+  	<%= submit_tag( 'Add relationship', :class => 'submit' ) %>
+<% end %>

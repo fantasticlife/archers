@@ -1,0 +1,8 @@
+<div class="section">
+	<%= content_tag( 'h1', "Add a new episode" ) %>
+</div>
+
+<%= form_for @episode, :url => { :action => 'create' } do |f| %>
+	<%= render :partial => 'form', :object => f %>
+  	<%= submit_tag( 'Add episode', :class => 'submit' ) %>
+<% end %>

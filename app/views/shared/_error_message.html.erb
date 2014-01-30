@@ -1,0 +1,10 @@
+<% if error_message.errors.any? %>
+	<div class="section" id="error-message">
+		<%= content_tag( 'p', "Couldn't update because:" ) %>
+		<ul>
+			<% error_message.errors.full_messages.each do |msg| %>
+				<%= content_tag( 'li', msg ) %>
+			<% end %>
+		</ul>
+	</div>
+<% end %>

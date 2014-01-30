@@ -1,0 +1,5 @@
+<ul class="view-switcher cm sub-section-<%= @sub_section %>">
+	<%= content_tag( 'li', link_to( 'List', relationship_list_url, :class => 'link-list' ) ) %>
+	<%= content_tag( 'li', link_to( 'Graphviz', relationship_graphviz_url, :class => 'link-graphviz' ) ) %>
+	<%= content_tag( 'li', link_to( 'Types', relationship_type_list_url, :class => 'link-type' ) ) %>
+</ul>

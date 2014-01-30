@@ -1,0 +1,107 @@
+<%= render :partial => 'shared/error_message', :object => @scene %>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Scene information' ) %>
+	<table>
+		<tbody>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Episode:', :for => 'scene_episode_id' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :episode_id, @episodes.collect {|e| [e.display_title, e.id]}, {}, :multiple => false ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Position:', :for => 'scene_segment_position' ) %>
+				</th>
+				<%= content_tag( 'td', ( form.text_field 'segment_position', :maxlength => 2 ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Start time:', :for => 'scene_segment_offset_start_4i' ) %>
+				</th>
+				<%= content_tag( 'td', form.time_select( 'segment_offset_start' ), :class => 'time-select' ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Duration:', :for => 'scene_segment_duration' ) %>
+				</th>
+				<%= content_tag( 'td', "#{( form.text_field 'segment_duration', :maxlength => 3, :class => 'duration' )} seconds".html_safe ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Direction:', :for => 'scene_direction' ) %>
+				</th>
+				<%= content_tag( 'td', ( form.text_area 'direction' ) ) %>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Event information' ) %>
+	<table>
+		<tbody>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Title:', :for => 'scene_event_title' ) %>
+				</th>
+				<%= content_tag( 'td', ( form.text_field 'event_title' ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Date:', :for => 'scene_event_date' ) %>
+				</th>
+				<%= content_tag( 'td', form.date_select( 'event_date', :start_year => 1900, :include_blank => true ), :class => 'date-select' ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Date precision:', :for => 'scene_event_date_format' ) %>
+				</th>
+				<%= content_tag( 'td', ( form.select 'event_date_format', [['Year, month and day', '%b %d, %Y'], ['Year and month only', '%b, %Y'], ['Year only', '%Y']] ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Time of day:', :for => 'scene_event_time_of_day' ) %>
+				</th>
+				<%= content_tag( 'td', ( form.text_field 'event_time_of_day', :maxlength => 255 ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Short synopsis:', :for => 'scene_event_short_synopsis' ) %>
+				</th>
+				<%= content_tag( 'td', ( form.text_field 'event_short_synopsis' ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Long synopsis:', :for => 'scene_event_long_synopsis' ) %>
+				</th>
+				<%= content_tag( 'td', ( form.text_area 'event_long_synopsis' ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Storylines:', :for => 'scene_storyline_ids' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :storyline_ids, @storylines.collect {|s| [s.title, s.id]}, {}, :multiple => true, :class => 'multiselect' ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Characters:', :for => 'scene_character_ids' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :character_ids, @characters.collect {|c| [c.label, c.id]}, {}, :multiple => true, :class => 'multiselect' ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Locations:', :for => 'scene_place_ids' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :place_ids, @places.collect {|p| [p.title, p.id]}, {}, :multiple => true, :class => 'multiselect' ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Reveals relationships:', :for => 'scene_relationship_ids' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :relationship_ids, @relationships.collect {|r| [r.full_label, r.id]}, {}, :multiple => true, :class => 'multiselect' ) ) %>
+			</tr>
+		</tbody>
+	</table>
+</div>

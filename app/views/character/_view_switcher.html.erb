@@ -1,0 +1,4 @@
+<ul class="view-switcher cm sub-section-<%= @sub_section %>">
+	<%= content_tag( 'li', link_to( 'List', character_list_url, :class => 'link-list' ) ) %>
+	<%= content_tag( 'li', link_to( 'Co-occurrence', character_cooccurrence_url, :class => 'link-cooccurrence' ) ) %>
+</ul>

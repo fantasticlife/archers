@@ -1,0 +1,11 @@
+<div class="section">
+	<%= content_tag( 'h1', @group.label ) %>
+	<%= render :partial => 'group_details', :object => @group %>
+</div>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Members' ) %>
+	<ol>
+		<%= render :partial => 'membership/membership', :collection => @group.memberships %>
+	</ol>
+</div>

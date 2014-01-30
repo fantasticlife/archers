@@ -1,0 +1,134 @@
+<%= render :partial => 'shared/error_message', :object => @character %>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Character details' )%>
+	<table>
+		<tbody>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Character type:', :for => 'character_character_type_id' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :character_type_id, @character_types.collect {|ct| [ct.label, ct.id]}, {}, :multiple => false ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Title:', :for => 'character_character_title_id' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :character_title_id, @character_titles.collect {|ct| [ct.label, ct.id]}, :include_blank => true, :multiple => false ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Name:', :for => 'character_name' ) %>
+				</th>
+				<%= content_tag( 'td', ( form.text_field 'name', :maxlength => 255 ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Gender:', :for => 'character_gender' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :gender, ['Female', 'Male'], :include_blank => true, :multiple => false ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Date of birth:', :for => 'character_date_of_birth_1i' ) %>
+				</th>
+				<%= content_tag( 'td', form.date_select( 'date_of_birth', :start_year => 1800, :include_blank => true ), :class => 'date-select' ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Date of death:', :for => 'character_date_of_death_1i' ) %>
+				</th>
+				<%= content_tag( 'td', form.date_select( 'date_of_death', :start_year => 1800, :include_blank => true ), :class => 'date-select' ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Place of birth:', :for => 'character_place_of_birth' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :place_of_birth, @places.collect {|p| [p.title, p.id]}, :include_blank => true, :multiple => false ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Known as:', :for => 'character_known_as' ) %>
+				</th>
+				<%= content_tag( 'td', ( form.text_area 'known_as' ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Occupations:', :for => 'occupation_ids' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :occupation_ids, @occupations.collect {|o| [o.label, o.id]}, {}, :multiple => true, :class => 'multiselect' ) ) %>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Production details' ) %>
+	<table>
+		<tbody>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Appearance type:', :for => 'character_character_appearance_type_id' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :character_appearance_type_id, @character_appearance_types.collect {|cat| [cat.label, cat.id]}, :include_blank => true, :multiple => false ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Character speaks:', :for => 'character_speaks' ) %>
+				</th>
+				<%= content_tag( 'td', ( form.check_box 'speaks' ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Major storylines:', :for => 'character_major_storyline_ids' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :major_storyline_ids, @storylines.collect {|s| [s.title, s.id]}, {}, :multiple => true, :class => 'multiselect' ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Minor storylines:', :for => 'character_minor_storyline_ids' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :minor_storyline_ids, @storylines.collect {|s| [s.title, s.id]}, {}, :multiple => true, :class => 'multiselect' ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Notes:', :for => 'character_notes' ) %>
+				</th>
+				<%= content_tag( 'td', ( form.text_area 'notes' ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Strapline:', :for => 'character_strapline' ) %>
+				</th>
+				<%= content_tag( 'td', ( form.text_field 'strapline', :maxlength => 255 ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Short synopsis:', :for => 'character_short_synopsis' ) %>
+				</th>
+				<%= content_tag( 'td', ( form.text_field 'short_synopsis', :maxlength => 255 ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Long synopsis:', :for => 'character_long_synopsis' ) %>
+				</th>
+				<%= content_tag( 'td', ( form.text_area 'long_synopsis' ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Lookup label:', :for => 'character_lookup_label' ) %>
+				</th>
+				<td>
+					<%= form.text_field 'lookup_label', :maxlength => 50 %>
+					<%= content_tag( 'p', 'Used to cross reference characters with scene by scenes and scripts', :class => 'tip' ) %>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'PID:', :for => 'character_pid' ) %>
+				</th>
+				<%= content_tag( 'td', ( form.text_field 'pid', :maxlength => 255 ) ) %>
+			</tr>
+		</tbody>
+	</table>
+</div>

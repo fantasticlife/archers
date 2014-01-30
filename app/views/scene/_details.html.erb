@@ -1,0 +1,86 @@
+<div class="section">
+	<%= content_tag( 'h2', 'Scene information' ) %>
+	<table>
+		<tbody>
+			<% unless details.episode.blank? -%>
+				<tr>
+					<%= content_tag( 'th', 'Episode:' ) %>
+					<%= content_tag( 'td', link_to( details.episode.display_title, episode_show_url( :episode => details.episode ) ) ) %>
+				</tr>
+			<% end -%>
+			<% if details.parent -%>
+				<tr>
+					<%= content_tag( 'th', 'Part of:' ) %>
+					<%= content_tag( 'td', link_to( details.parent.display_title_with_episode, scene_show_url( :scene => details.parent ) ) ) %>
+				</tr>
+			<% end -%>
+			<% unless details.segment_position.blank? -%>
+				<tr>
+					<%= content_tag( 'th', 'Position:' ) %>
+					<%= content_tag( 'td', details.segment_position ) %>
+				</tr>
+			<% end -%>
+			<% unless details.segment_offset_start.blank? -%>
+				<tr>
+					<%= content_tag( 'th', 'Start time:' ) %>
+					<%= content_tag( 'td', details.segment_offset_start.strftime( '%H:%M' ) ) %>
+				</tr>
+			<% end -%>
+			<% unless details.segment_duration.blank? -%>
+				<tr>
+					<%= content_tag( 'th', 'Duration:' ) %>
+					<%= content_tag( 'td', "#{details.segment_duration} seconds" ) %>
+				</tr>
+			<% end -%>
+			<% unless details.direction.blank? -%>
+				<tr>
+					<%= content_tag( 'th', 'Direction:' ) %>
+					<%= content_tag( 'td', details.direction ) %>
+				</tr>
+			<% end -%>
+		</tbody>
+	</table>
+</div>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Event information' ) %>
+	<table>
+		<tbody>
+			<% unless details.event_title.blank? -%>
+				<tr>
+					<%= content_tag( 'th', 'Title:' ) %>
+					<%= content_tag( 'td', details.event_title ) %>
+				</tr>
+			<% end -%>
+			<% if details.event_date and details.event_date_format -%>
+				<tr>
+					<%= content_tag( 'th', 'Date:' ) %>
+					<%= content_tag( 'td', details.event_date.strftime( details.event_date_format ) ) %>
+				</tr>
+			<% end -%>
+			<% unless details.event_time_of_day.blank? -%>
+				<tr>
+					<%= content_tag( 'th', 'Time of day:' ) %>
+					<%= content_tag( 'td', details.event_time_of_day ) %>
+				</tr>
+			<% end -%>
+			<% unless details.event_short_synopsis.blank? -%>
+				<tr>
+					<%= content_tag( 'th', 'Short synopsis:' ) %>
+					<%= content_tag( 'td', details.event_short_synopsis ) %>
+				</tr>
+			<% end -%>
+			<% unless details.event_long_synopsis.blank? -%>
+				<tr>
+					<%= content_tag( 'th', 'Long synopsis:' ) %>
+					<%= content_tag( 'td', details.event_long_synopsis ) %>
+				</tr>
+			<% end -%>
+		</tbody>
+	</table>
+</div>
+
+<%= render :partial => 'scene/storylines', :object => details unless details.storylines.empty? %>
+<%= render :partial => 'scene/characters', :object => details unless details.characters.empty? %>
+<%= render :partial => 'scene/places', :object => details unless details.places.empty? %>
+<%= render :partial => 'scene/relationship_reveals', :object => details unless details.relationships.empty? %>

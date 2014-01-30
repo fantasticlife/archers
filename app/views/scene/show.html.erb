@@ -1,0 +1,20 @@
+<div class="section">
+	<h1>
+		<%= "#{@scene.display_title_with_episode} #{content_tag( 'span', link_to( 'Edit', scene_edit_url))}".html_safe %>
+	</h1>
+</div>
+
+<%= render :partial => 'previous_next', :object => @scene %>
+
+<%= render :partial => 'details', :object => @scene %>
+
+<%= render :partial => 'children', :object => @scene unless @scene.children.empty? %>
+
+<%= render :partial => 'script', :object => @scene unless @scene.script_lines.empty? %>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Delete' ) %>
+	<%= form_for @scene, :url => { :action => 'delete' } do |f| %>
+		<%= submit_tag( 'Delete scene', data: { confirm: 'Are you sure?' } ) %>
+	<% end %>
+</div>

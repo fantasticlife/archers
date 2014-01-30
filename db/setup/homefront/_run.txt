@@ -1,0 +1,10 @@
+# switch database.yml to homefront
+
+cd Documents/Work/Code/Rails/projects/_continuity/homefront
+
+psql homefront_development
+copy / paste / run setup.sql into psql
+\q
+
+rvm use 1.9.3-p125
+rake homefront_setup

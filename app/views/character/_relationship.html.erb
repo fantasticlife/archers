@@ -1,0 +1,1 @@
+<%= content_tag( 'li', " #{link_to( relationship.from_character.name, character_show_url( :character => relationship.from_character ) ) } #{relationship.relationship_type.label.downcase} #{link_to( relationship.to_character.name, character_show_url( :character => relationship.to_character ) ) }".html_safe ) %>

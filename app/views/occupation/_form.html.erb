@@ -1,0 +1,12 @@
+<%= render :partial => 'shared/error_message', :object => @occupation %>
+
+<table>
+	<tbody>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Name:', :for => 'occupation_label' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_field 'label', :maxlength => 255 ) ) %>
+		</tr>
+	</tbody>
+</table>

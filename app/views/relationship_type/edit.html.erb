@@ -1,0 +1,8 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{link_to( @relationship_type.label, relationship_type_show_url( :relationship_type => @relationship_type ) )} Edit".html_safe ) %>
+</div>
+
+<%= form_for @relationship_type, :url => { :action => 'update', :relationship_type_to_update => @relationship_type } do |f| %>
+	<%= render :partial => 'form', :object => f %>
+  	<%= submit_tag( 'Update', :class => 'submit' ) %>
+<% end %>

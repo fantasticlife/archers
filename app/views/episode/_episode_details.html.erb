@@ -1,0 +1,41 @@
+<div class="section">
+	<%= content_tag( 'h2', 'Episode details' ) %>
+	<table>
+		<% if episode_details.pid -%>
+			<tr>
+				<%= content_tag( 'th', 'PID:' ) %>
+				<%= content_tag( 'td', link_to( episode_details.pid, "http://www.bbc.co.uk/programmes/#{episode_details.pid}" ) ) %>
+			</tr>
+		<% end -%>
+		<% if episode_details.tx_date -%>
+			<tr>
+				<%= content_tag( 'th', 'First broadcast:' ) %>
+				<%= content_tag( 'td', episode_details.tx_date ) %>
+			</tr>
+		<% end -%>
+		<% if episode_details.series -%>
+			<tr>
+				<%= content_tag( 'th', 'Series:' ) %>
+				<%= content_tag( 'td', episode_details.series ) %>
+			</tr>
+		<% end -%>
+		<% if episode_details.block -%>
+			<tr>
+				<%= content_tag( 'th', 'Block:' ) %>
+				<%= content_tag( 'td', episode_details.block ) %>
+			</tr>
+		<% end -%>
+		<% unless episode_details.long_synopsis.blank? -%>
+			<tr>
+				<%= content_tag( 'th', 'Long synopsis:' ) %>
+				<%= content_tag( 'td', episode_details.long_synopsis ) %>
+			</tr>
+		<% end -%>
+		<% if episode_details.position -%>
+			<tr>
+				<%= content_tag( 'th', 'Position:' ) %>
+				<%= content_tag( 'td', episode_details.position ) %>
+			</tr>
+		<% end -%>
+	</table>
+</div>

@@ -1,0 +1,48 @@
+<%= render :partial => 'shared/error_message', :object => @place %>
+
+<table>
+	<tbody>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Name:', :for => 'place_title' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_field 'title', :maxlength => 255 ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Short synopsis:', :for => 'place_short_synopsis' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_field 'short_synopsis', :maxlength => 40 ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Long synopsis:', :for => 'place_long_synopsis' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_area 'long_synopsis' ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Latitude:', :for => 'place_lat' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_field 'lat', :maxlength => 50 ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Longitude:', :for => 'place_lon' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_field 'lon', :maxlength => 50 ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Is in:', :for => 'character_parent_id' ) %>
+			</th>
+			<%= content_tag( 'td', form.select( :parent_id, @places.collect {|p| [p.title, p.id]}, :include_blank => true, :multiple => false ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Notes:', :for => 'place_notes' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_area 'notes' ) ) %>
+		</tr>
+	</tbody>
+</table>

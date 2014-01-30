@@ -1,0 +1,89 @@
+<%= render :partial => 'shared/error_message', :object => @episode %>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Episode details' ) %>
+	<table>
+		<tbody>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'PID:', :for => 'episode_pid' ) %>
+				</th>
+				<%= content_tag( 'td', form.text_field( 'pid', :maxlength => 255 ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Series:', :for => 'episode_series' ) %>
+				</th>
+				<%= content_tag( 'td', form.text_field( 'series', :maxlength => 255 ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Block:', :for => 'episode_block' ) %>
+				</th>
+				<%= content_tag( 'td', form.text_field( 'block', :maxlength => 255 ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Title:', :for => 'episode_title' ) %>
+				</th>
+				<%= content_tag( 'td', form.text_field( 'title', :maxlength => 255 ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Long synopsis:', :for => 'episode_long_synopsis' ) %>
+				</th>
+				<%= content_tag( 'td', form.text_area( 'long_synopsis' ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'First broadcast:', :for => 'episode_tx_date_1i' ) %>
+				</th>
+				<%= content_tag( 'td', form.date_select( 'tx_date', :start_year => 1930 ), :class => 'date-select' ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Position:', :for => 'episode_position' ) %>
+				</th>
+				<%= content_tag( 'td', form.text_field( 'position', :maxlength => 3 ) ) %>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Crew' ) %>
+	<table>
+		<tbody>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Writer:', :for => 'character_writer_id' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :writer_id, @crew.collect {|c| [c.name, c.id]}, :include_blank => true, :multiple => false ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Producer:', :for => 'character_producer_id' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :producer_id, @crew.collect {|c| [c.name, c.id]}, :include_blank => true, :multiple => false ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Editor:', :for => 'character_editor_id' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :editor_id, @crew.collect {|c| [c.name, c.id]}, :include_blank => true, :multiple => false ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Director:', :for => 'character_director_id' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :director_id, @crew.collect {|c| [c.name, c.id]}, :include_blank => true, :multiple => false ) ) %>
+			</tr>
+			<tr>
+				<th>
+					<%= content_tag( 'label', 'Researcher:', :for => 'character_researcher_id' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :researcher_id, @crew.collect {|c| [c.name, c.id]}, :include_blank => true, :multiple => false ) ) %>
+			</tr>
+		</tbody>
+	</table>
+</div>

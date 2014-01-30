@@ -1,0 +1,10 @@
+<div class="section">
+	<%= content_tag( 'h1', 'Character graphviz' ) %>
+</div>
+
+<div class="section">
+	<%= render :partial => 'view_switcher' %>
+</div>
+
+<div id="graphviz"></div>
+<%= render :partial => 'shared/graphviz', :object => relationship_graphviz_url( :format => 'json' ), :locals => {:height => 500, :width => 1000, :charge => -220, :link_distance => 50} %>

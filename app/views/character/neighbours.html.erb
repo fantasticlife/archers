@@ -1,0 +1,5 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{@character.name} - Neighbours" ) %>
+</div>
+<div id="graphviz"></div>
+<%= render :partial => 'shared/graphviz', :object => character_neighbours_url( :format => 'json' ), :locals => {:height => 400, :width => 1000, :charge => -320, :link_distance => 300} %>

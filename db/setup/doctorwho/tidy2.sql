@@ -1,0 +1,10 @@
+alter table scenes drop column end_time;
+drop table event_locations;
+delete from scenes_storylines where scene_id is null;
+alter table scenes_storylines drop column event_id;
+alter table involvements drop column event_id;
+delete from involvements where scene_id is null;
+delete from event_to_event_references where from_scene_id is null;
+alter table event_to_event_references drop column from_event_id;
+alter table event_to_event_references drop column to_event_id;
+drop table events;

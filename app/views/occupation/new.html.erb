@@ -1,0 +1,8 @@
+<div class="section">
+	<%= content_tag( 'h1', "Add a new occupation" ) %>
+</div>
+
+<%= form_for @occupation, :url => { :action => 'create' } do |f| %>
+	<%= render :partial => 'form', :object => f %>
+  	<%= submit_tag( 'Add occupation', :class => 'submit' ) %>
+<% end %>
