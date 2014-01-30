@@ -1,0 +1,10 @@
+<div class="section">
+	<%= content_tag( 'h1', 'Characters co-occurrent in scenes' ) %>
+</div>
+
+<div class="section">
+	<%= render :partial => 'view_switcher' %>
+</div>
+
+<div id="graphviz"></div>
+<%= render :partial => 'shared/graphviz', :object => character_cooccurrence_url( :format => 'json' ), :locals => {:height => 500, :width => 1000, :charge => -320, :link_distance => 300} %>

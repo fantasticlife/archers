@@ -1,0 +1,6 @@
+<div class="section">
+	<%= content_tag( 'h2', 'Reveals relationships' ) %>
+	<ol>
+		<%= render :partial => 'relationship/relationship_list_item', :collection => relationship_reveals.relationships %>
+	</ol>
+</div>

@@ -1,0 +1,16 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{@place.title} #{content_tag( 'span', link_to( 'Edit', place_edit_url))}".html_safe ) %>
+</div>
+
+<%= render :partial => 'place_details', :object => @place  %>
+<%= render :partial => 'children', :object => @place unless @place.children.empty? %>
+<%= render :partial => 'scenes', :object => @place unless @place.scenes.empty? %>
+<%= render :partial => 'births', :object => @place unless @place.births.empty? %>
+<%= render :partial => 'notes', :object => @place.place_notes %>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Delete' ) %>
+	<%= form_for @place, :url => { :action => 'delete' } do |f| %>
+		<%= submit_tag( 'Delete place', data: { confirm: 'Are you sure?' } ) %>
+	<% end %>
+</div>

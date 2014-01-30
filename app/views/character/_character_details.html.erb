@@ -1,0 +1,107 @@
+<div class="section">
+	<%= content_tag( 'h2', 'Character details' )%>
+	<table>
+		<% if character_details.character_type -%>
+			<tr>
+				<%= content_tag( 'th', 'Character type:' ) %>
+				<%= content_tag( 'td', character_details.character_type.label ) %>
+			</tr>
+		<% end -%>
+		<% if character_details.character_title -%>
+			<tr>
+				<%= content_tag( 'th', 'Title:' ) %>
+				<%= content_tag( 'td', character_details.character_title.label ) %>
+			</tr>
+		<% end -%>
+		<% if character_details.gender and !character_details.gender.blank? -%>
+			<tr>
+				<%= content_tag( 'th', 'Gender:' ) %>
+				<%= content_tag( 'td', character_details.gender ) %>
+			</tr>
+		<% end -%>
+		<% if character_details.date_of_birth -%>
+			<tr>
+				<%= content_tag( 'th', 'Date of birth:' ) %>
+				<%= content_tag( 'td', character_details.date_of_birth.strftime( '%d %B %Y' ) ) %>
+			</tr>
+			<tr>
+				<%= content_tag( 'th', "Age in #{@fictional_date.strftime( '%Y' )}:" ) %>
+				<%= content_tag( 'td', character_details.age( @fictional_date ) ) %>
+			</tr>
+		<% end -%>
+		<% if character_details.date_of_death -%>
+			<tr>
+				<%= content_tag( 'th', 'Date of death:' ) %>
+				<%= content_tag( 'td', character_details.date_of_death.strftime( '%d %B %Y' ) ) %>
+			</tr>
+		<% end -%>
+		<% if character_details.place_of_birth -%>
+			<tr>
+				<%= content_tag( 'th', "Place of birth:" ) %>
+				<%= render :partial => 'place_of_birth', :object => character_details.birth_place %>
+			</tr>
+		<% end -%>
+		<% if character_details.known_as -%>
+			<tr>
+				<%= content_tag( 'th', "Known as:" ) %>
+				<%= content_tag( 'td', character_details.known_as ) %>
+			</tr>
+		<% end -%>
+		<% unless character_details.occupations.empty? -%>
+			<tr>
+				<%= content_tag( 'th', "Occupations:" ) %>
+				<td>
+					<ol>
+						<%= render :partial => 'occupation/occupation', :collection => character_details.occupations %>
+					</ol>
+				</td>
+			</tr>
+		<% end -%>
+	</table>
+</div>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Production details' ) %>
+	<table>
+		<% if character_details.character_appearance_type -%>
+			<tr>
+				<%= content_tag( 'th', 'Character appearance type:' ) %>
+				<%= content_tag( 'td', character_details.character_appearance_type.label ) %>
+			</tr>
+		<% end -%>
+		<tr>
+			<%= content_tag( 'th', 'Character speaks:' ) %>
+			<%= content_tag( 'td', character_details.speaks ) %>
+		</tr>
+		<% if character_details.notes and !character_details.notes.blank? -%>
+			<tr>
+				<%= content_tag( 'th', "Notes:" ) %>
+				<%= content_tag( 'td', character_details.notes ) %>
+			</tr>
+		<% end -%>
+		<% if character_details.strapline and !character_details.strapline.blank? -%>
+			<tr>
+				<%= content_tag( 'th', "Strapline:" ) %>
+				<%= content_tag( 'td', character_details.strapline ) %>
+			</tr>
+		<% end -%>
+		<% if character_details.short_synopsis and !character_details.short_synopsis.blank? -%>
+			<tr>
+				<%= content_tag( 'th', "Short synopsis:" ) %>
+				<%= content_tag( 'td', character_details.short_synopsis ) %>
+			</tr>
+		<% end -%>
+		<% if character_details.long_synopsis and !character_details.long_synopsis.blank? -%>
+			<tr>
+				<%= content_tag( 'th', "Long synopsis:" ) %>
+				<%= content_tag( 'td', character_details.long_synopsis ) %>
+			</tr>
+		<% end -%>
+		<% if character_details.pid and !character_details.pid.blank? -%>
+			<tr>
+				<%= content_tag( 'th', 'PID:' ) %>
+				<%= content_tag( 'td', character_details.pid ) %>
+			</tr>
+		<% end -%>
+	</table>
+</div>

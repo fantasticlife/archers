@@ -1,0 +1,11 @@
+<li>
+	<% if script_line.line_type == 'stage' -%>
+		<%= content_tag( 'p', script_line.line, :class => 'direction' ) %>
+	<% else -%>
+		<p>
+			<%= link_to( script_line.character.name, character_show_url( :character => script_line.character ) ) %>
+			:
+			<%= script_line.line %>
+		</p>
+	<% end -%>
+</li>

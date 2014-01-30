@@ -1,0 +1,14 @@
+<li>
+	<%= content_tag( 'h3', character_name.display_title ) %>
+	<%= content_tag( 'p', character_name.date.strftime( '%d %B %Y' ) ) if character_name.date %>
+	<%= content_tag( 'p', character_name.note ) %>
+	<%= content_tag( 'p', character_name.known_as_this ) %>
+	<ul class="cm buttons">
+		<%= content_tag( 'li', link_to( 'Edit', character_name_edit_url( :name => character_name ) ) ) %>
+		<li>
+			<%= form_for character_name, :url => { :controller => 'character_name', :action => 'delete', :name => character_name } do |f| %>
+				<%= submit_tag( 'Delete', data: { confirm: 'Are you sure?' } ) %>
+			<% end %>
+		</li>
+	</ul>
+</li>

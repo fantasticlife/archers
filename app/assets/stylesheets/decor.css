@@ -1,0 +1,201 @@
+body {
+	background-color: #000;
+	background-image: url('/assets/map.jpg');
+}
+body * {
+	font-family: arial, helvetica, verdana, sans-serif;
+}
+
+/* header */
+.header {
+	color: #ccc;
+}
+.header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+/* masthead */
+.masthead {
+	font-size: 2em;
+}
+
+/* nav */
+.nav a:hover {
+	background-color: #fff;
+	color: #000;
+}
+.section-home .section-home {
+	background-color: #fff;
+	color: #000;
+}
+.section-storyline .section-storyline {
+	background-color: #fff;
+	color: #000;
+}
+.section-character .section-character {
+	background-color: #fff;
+	color: #000;
+}
+.section-relationship .section-relationship {
+	background-color: #fff;
+	color: #000;
+}
+.section-group .section-group {
+	background-color: #fff;
+	color: #000;
+}
+.section-occupation .section-occupation {
+	background-color: #fff;
+	color: #000;
+}
+.section-place .section-place {
+	background-color: #fff;
+	color: #000;
+}
+.section-profession .section-profession {
+	background-color: #fff;
+	color: #000;
+}
+.section-week .section-week {
+	background-color: #fff;
+	color: #000;
+}
+.section-beat .section-beat {
+	background-color: #fff;
+	color: #000;
+}
+.section-episode .section-episode {
+	background-color: #fff;
+	color: #000;
+}
+.section-scene .section-scene {
+	background-color: #fff;
+	color: #000;
+}
+.section-crew .section-crew {
+	background-color: #fff;
+	color: #000;
+}
+
+/* main */
+.main {
+	background-color: #fff;
+}
+
+/* flash notice */
+#flash-notice {
+	background-color: #ccc;
+	border-color: #f00;
+	border-style: solid;
+}
+
+/* headings */
+h1 {
+	border-color: #aaa;
+	border-style: solid;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+h1 span {
+	font-size: .6em;
+}
+h2 {
+	border-color: #ccc;
+	border-style: solid;
+	font-weight: bold;
+}
+h3 {
+	font-weight: bold;
+}
+
+/* scene setting */
+p#direction {
+	font-style: italic;
+}
+
+/* tips */
+p.tip {
+	font-size: .7em;
+}
+
+/* view switcher */
+.view-switcher li a {
+	background-color: #aaa;
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-o-border-radius: 12px;
+	-webkit-border-radius: 3em;
+	border-radius: .7em;
+	color: #000;
+	text-decoration: none;
+}
+.view-switcher li a:hover {
+	background-color: #000;
+	color: #fff;
+}
+.sub-section-list .link-list {
+	background-color: #000;
+	color: #fff;
+}
+.sub-section-graphviz .link-graphviz {
+	background-color: #000;
+	color: #fff;
+}
+.sub-section-cooccurrence .link-cooccurrence {
+	background-color: #000;
+	color: #fff;
+}
+.sub-section-type .link-type {
+	background-color: #000;
+	color: #fff;
+}
+
+/* error messages */
+#error-message li:before {
+	content: '- ';	
+}
+.field_with_errors * {
+	background-color: #f00;
+	color: #fff;
+}
+
+/* d3 svg */
+#graphviz line {
+	fill: none;
+	stroke: #666;
+}
+#graphviz circle {
+	fill: #ccc;
+	stroke: #fff;
+	stroke-width: 1.5px;
+}
+#graphviz text {
+	font: .8em sans-serif;
+}
+
+/* list item buttons */
+li .buttons a, li .buttons input {
+	background-color: #aaa;
+	border-color: gray;
+	border-style: solid;
+	color: #000;
+	font-size: .7em;
+	text-decoration: none;
+}
+li .buttons li a:hover, li .buttons li input:hover {
+	background-color: #000;
+	color: #fff;
+	cursor: pointer;
+}
+
+/* footer */
+#footer {
+	text-align: center;
+}
+#footer p {
+	font-size: .7em;	
+}
+#footer * {
+	color: #fff;
+}

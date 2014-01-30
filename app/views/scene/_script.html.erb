@@ -1,0 +1,6 @@
+<div class="section">
+	<%= content_tag( 'h2', 'Script' ) %>
+	<ol>
+		<%= render :partial => 'script_line/script_line', :collection => script.script_lines %>
+	</ol>
+</div>

@@ -1,0 +1,11 @@
+<div class="section">
+	<%= content_tag( 'h1', 'Crew' ) %>
+	<ol>
+		<%= render :partial => 'crew', :collection => @crews %>
+	</ol>
+</div>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Add new' ) %>
+	<%= content_tag( 'p', link_to( 'Add a new crew member', crew_new_url ) ) %>
+</div>

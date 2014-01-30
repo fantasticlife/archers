@@ -1,0 +1,4 @@
+graph "Relationships" {
+	<%= render :partial => 'shared/node', :collection => @nodes unless @nodes.empty? %>
+	<%= render :partial => 'shared/edge', :collection => @edges unless @edges.empty? %>
+}

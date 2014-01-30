@@ -1,0 +1,18 @@
+<div class="section">
+	<%= content_tag( 'h1', 'Characters' ) %>
+</div>
+
+<div class="section">
+	<%= render :partial => 'view_switcher' %>
+</div>
+
+<div class="section">
+	<ol>
+		<%= render :partial => 'character', :collection => @characters %>
+	</ol>
+</div>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Add new' ) %>
+	<%= content_tag( 'p', link_to( 'Add a new character', character_new_url ) ) %>
+</div>

@@ -1,0 +1,7 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{@place.title} - Notes" ) %>
+</div>
+
+<ol>
+	<%= render :partial => 'place_note', :collection => @place.place_notes %>
+</ol>

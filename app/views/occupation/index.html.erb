@@ -1,0 +1,11 @@
+<div class="section">
+	<%= content_tag( 'h1', 'Occupations' ) %>
+	<ol>
+		<%= render :partial => 'occupation', :collection => @occupations %>
+	</ol>
+</div>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Add new' ) %>
+	<%= content_tag( 'p', link_to( 'Add a new occupation', occupation_new_url ) ) %>
+</div>

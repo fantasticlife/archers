@@ -1,0 +1,6 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{@storyline.title} - Scenes" ) %>
+	<ol>
+		<%= render :partial => 'scene', :collection => @storyline.scenes %>
+	</ol>
+</div>

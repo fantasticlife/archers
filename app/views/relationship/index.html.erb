@@ -1,0 +1,20 @@
+<div class="section">
+	<%= content_tag( 'h1', 'Relationships' ) %>
+</div>
+
+<div class="section">
+	<%= render :partial => 'view_switcher' %>
+</div>
+
+<div class="section">
+	<table>
+		<tbody>
+			<%= render :partial => 'relationship', :collection => @relationships %>
+		</tbody>
+	</table>
+</div>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Add new' ) %>
+	<%= content_tag( 'p', link_to( 'Add a new relationship', relationship_new_url ) ) %>
+</div>

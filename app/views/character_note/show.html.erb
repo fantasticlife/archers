@@ -1,0 +1,6 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{link_to( @character.name, character_show_url)} - Note #{content_tag( 'span', link_to( 'Edit', character_note_edit_url))}".html_safe ) %>
+</div>
+
+<%= content_tag( 'h2', @note.date.strftime( '%d %B %Y' ) ) if @note.date %>
+<%= content_tag( 'p', @note.note ) %>

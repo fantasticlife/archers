@@ -1,0 +1,4 @@
+<div class="cm previous-next section">
+	<%= link_to( 'Previous', storyline_scene_show_url( :scene => previous_next.previous_in_storyline( @storyline ) ), :class => 'previous' ) if previous_next.previous_in_storyline( @storyline ) %>
+	<%= link_to( 'Next', storyline_scene_show_url( :scene => previous_next.next_in_storyline( @storyline ) ), :class => 'next' ) if previous_next.next_in_storyline( @storyline )  %>
+</div>

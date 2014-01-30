@@ -1,0 +1,4 @@
+<div class="cm previous-next section">
+	<%= link_to( 'Previous', episode_show_url( :episode => previous_next.previous ), :class => 'previous' ) if previous_next.previous %>
+	<%= link_to( 'Next', episode_show_url( :episode => previous_next.next ), :class => 'next' ) if previous_next.next %>
+</div>

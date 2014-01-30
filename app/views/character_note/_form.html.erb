@@ -1,0 +1,20 @@
+<%= render :partial => 'shared/error_message', :object => @note %>
+
+<%= form.hidden_field( :character_id ) %>
+
+<table class="section">
+	<tbody>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Date:', :for => 'character_note_date_1i' ) %>
+			</th>
+			<%= content_tag( 'td', form.date_select( 'date', :start_year => 1800, :include_blank => true ), :class => 'date-select' ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Note:', :for => 'character_note_note' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_area 'note' ) ) %>
+		</tr>
+	</tbody>
+</table>

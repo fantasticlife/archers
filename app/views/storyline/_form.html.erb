@@ -1,0 +1,48 @@
+<%= render :partial => 'shared/error_message', :object => @storyline %>
+
+<table>
+	<tbody>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Title:', :for => 'storyline_title' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_field 'title', :maxlength => 255 ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Short synopsis:', :for => 'storyline_short_synopsis' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_field 'short_synopsis', :maxlength => 255 ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Long synopsis:', :for => 'storyline_long_synopsis' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_area 'long_synopsis' ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Article:', :for => 'storyline_article' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_area 'article' ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Position:', :for => 'storyline_position' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_field 'position', :maxlength => 2 ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Major characters:', :for => 'storyline_major_character_character_ids' ) %>
+			</th>
+			<%= content_tag( 'td', form.select( :major_character_character_ids, @characters.collect {|c| [c.name, c.id]}, {}, :multiple => true, :class => 'multiselect' ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Minor characters:', :for => 'storyline_minor_character_character_ids' ) %>
+			</th>
+			<%= content_tag( 'td', form.select( :minor_character_character_ids, @characters.collect {|c| [c.name, c.id]}, {}, :multiple => true, :class => 'multiselect' ) ) %>
+		</tr>
+	</tbody>
+</table>

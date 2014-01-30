@@ -1,0 +1,12 @@
+<div class="section">
+	<%= content_tag( 'h2', 'Name changes:' ) %>
+	<% if names.empty? -%>
+		<%= content_tag( 'p', 'No name changes to show.' ) %>
+	<% else -%>
+		<ol>
+			<%= render :partial => 'character_name/character_name', :collection => names %>
+		</ol>
+	<% end -%>
+	<%= content_tag( 'h3', 'Add new' ) %>
+	<%= content_tag( 'p', link_to( 'Add a new name', character_name_new_url ) ) %>
+</div>

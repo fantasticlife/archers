@@ -1,0 +1,6 @@
+<div class="section">
+	<%= content_tag( 'h2', "In #{children.title}" ) %>
+	<ol>
+		<%= render :partial => 'place', :collection => @place.children %>
+	</ol>
+</div>

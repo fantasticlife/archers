@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Homefront - <%= @page_title %></title>
+		<%= stylesheet_link_tag :application %>
+		<%= javascript_include_tag :application %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body class="section-<%= @section %>">
+		<div class="main">
+			<% if flash[:notice] -%>
+				<div id="flash-notice" class="section">
+					<%= content_tag 'p', flash[:notice] %>
+				</div>
+			<% end -%>
+			<%= yield %>
+		</div>
+		<%= render 'layouts/header/header' %>
+		<%= render 'layouts/footer/footer' %>
+	</body>
+</html>

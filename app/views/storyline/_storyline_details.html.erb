@@ -1,0 +1,20 @@
+<table class="section">
+	<% if storyline_details.short_synopsis -%>
+		<tr>
+			<%= content_tag( 'th', 'Short synopsis:' ) %>
+			<%= content_tag( 'td', storyline_details.short_synopsis ) %>
+		</tr>
+	<% end -%>
+	<% if storyline_details.long_synopsis -%>
+		<tr>
+			<%= content_tag( 'th', 'Long synopsis:' ) %>
+			<%= content_tag( 'td', storyline_details.long_synopsis ) %>
+		</tr>
+	<% end -%>
+	<% if storyline_details.article -%>
+		<tr>
+			<%= content_tag( 'th', 'Article:' ) %>
+			<%= content_tag( 'td', storyline_details.article ) %>
+		</tr>
+	<% end -%>
+</table>

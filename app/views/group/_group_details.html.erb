@@ -1,0 +1,22 @@
+<table>
+	<tbody>
+		<% if group_details.start_date -%>
+			<tr>
+				<%= content_tag( 'th', 'Start date:' ) %>
+				<%= content_tag( 'td', group_details.start_date.strftime( '%d %B %Y' ) ) %>
+			</tr>
+		<% end -%>
+		<% if group_details.end_date -%>
+			<tr>
+				<%= content_tag( 'th', 'End date:' ) %>
+				<%= content_tag( 'td', group_details.end_date.strftime( '%d %B %Y' ) ) %>
+			</tr>
+		<% end -%>
+		<% if group_details.notes and !group_details.notes.empty? -%>
+			<tr>
+				<%= content_tag( 'th', 'Notes:' ) %>
+				<%= content_tag( 'td', group_details.notes ) %>
+			</tr>
+		<% end -%>
+	</tbody>
+</table>
