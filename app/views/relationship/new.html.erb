@@ -3,29 +3,6 @@
 </div>
 
 <%= form_for @relationship, :url => { :action => 'create' } do |f| %>
-	<%= render :partial => 'shared/error_message', :object => @relationship %>
-	
-	<table>
-		<tbody>
-			<tr>
-				<th>
-					<%= content_tag( 'label', 'From character:', :for => 'relationship_from_character_id' ) %>
-				</th>
-				<%= content_tag( 'td', f.select( :from_character_id, @characters.collect {|c| [c.name, c.id]}, {}, :multiple => false ) ) %>
-			</tr>
-			<tr>
-				<th>
-					<%= content_tag( 'label', 'Relationship:', :for => 'relationship_relationship_type_id' ) %>
-				</th>
-				<%= content_tag( 'td', f.select( :relationship_type_id, @relationship_types.collect {|rt| [rt.label, rt.id]}, {}, :multiple => false ) ) %>
-			</tr>
-			<tr>
-				<th>
-					<%= content_tag( 'label', 'To character:', :for => 'relationship_to_character_id' ) %>
-				</th>
-				<%= content_tag( 'td', f.select( :to_character_id, @characters.collect {|c| [c.name, c.id]}, {}, :multiple => false ) ) %>
-			</tr>
-		</tbody>
-	</table>
+	<%= render :partial => 'form', :object => f %>
   	<%= submit_tag( 'Add relationship', :class => 'submit' ) %>
 <% end %>

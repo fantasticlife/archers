@@ -1,0 +1,20 @@
+<%= render :partial => 'shared/error_message', :object => @beat %>
+
+<%= form.hidden_field( :storyline_id ) %>
+
+<table>
+	<tbody>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Date:', :for => 'beat_date_1i' ) %>
+			</th>
+			<%= content_tag( 'td', form.date_select( 'date', :start_year => 1950, :include_blank => true ), :class => 'date-select' ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Note:', :for => 'beat_note' ) %>
+			</th>
+			<%= content_tag( 'td', form.text_area( 'note' ) ) %>
+		</tr>
+	</tbody>
+</table>

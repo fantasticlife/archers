@@ -1,5 +1,5 @@
 class Relationship < ActiveRecord::Base
-  attr_accessible :from_character_id, :relationship_type_id, :to_character_id
+  attr_accessible :from_character_id, :relationship_type_id, :to_character_id, :start_date, :end_date
   
   attr_accessor :source_id, :target_id, :source_index, :target_index, :value
   
@@ -16,8 +16,20 @@ class Relationship < ActiveRecord::Base
     Character.find( self.to_character_id )
   end
   
-  def full_label
-    "#{self.from_character.name} #{self.relationship_type.label.downcase} #{self.to_character.name}" 
+  def display_label
+    "#{self.from_character.name} #{self.relationship_type.label.downcase} to #{self.to_character.name}" 
+  end
+
+  def dates
+    dates = ''
+    if self.start_date and self.end_date
+      dates = dates + self.start_date.strftime( '%d %B %Y' ) + ' - ' + self.end_date.strftime( '%d %B %Y' )
+    elsif self.start_date
+      dates = dates + self.start_date.strftime( '%d %B %Y' ) + ' - '
+    elsif self.end_date
+      dates = dates + ' - ' + self.end_date.strftime( '%d %B %Y' )
+    end
+    dates
   end
 
 

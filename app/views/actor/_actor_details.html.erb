@@ -1,0 +1,20 @@
+<table class="section">
+	<% if actor_details.date_of_birth -%>
+		<tr>
+			<%= content_tag( 'th', 'Date of birth:' ) %>
+			<%= content_tag( 'td', actor_details.date_of_birth.strftime( '%d %B %Y' ) ) %>
+		</tr>
+	<% end -%>
+	<% if actor_details.date_of_death -%>
+		<tr>
+			<%= content_tag( 'th', 'Date of death:' ) %>
+			<%= content_tag( 'td', actor_details.date_of_death.strftime( '%d %B %Y' ) ) %>
+		</tr>
+	<% end -%>
+	<% unless actor_details.note.blank? -%>
+		<tr>
+			<%= content_tag( 'th', 'Notes:' ) %>
+			<%= content_tag( 'td', actor_details.note ) %>
+		</tr>
+	<% end -%>
+</table>

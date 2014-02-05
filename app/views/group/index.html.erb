@@ -4,3 +4,8 @@
 		<%= render :partial => 'group', :collection => @groups %>
 	</ol>
 </div>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Add new' ) %>
+	<%= content_tag( 'p', link_to( 'Add a new group', group_new_url ) ) %>
+</div>

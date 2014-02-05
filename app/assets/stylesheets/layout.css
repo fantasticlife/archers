@@ -31,7 +31,7 @@
 	margin: 127px 3em 1em;
 	padding: 1em;
 }
-.main p {
+.main p, .main ol {
 	padding-bottom: 1em;
 }
 .main p.tip {

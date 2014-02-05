@@ -1,0 +1,8 @@
+<div class="section">
+	<%= content_tag( 'h1', "Add a new actor" ) %>
+</div>
+
+<%= form_for @actor, :url => { :action => 'create' } do |f| %>
+	<%= render :partial => 'form', :object => f %>
+  	<%= submit_tag( 'Add actor', :class => 'submit' ) %>
+<% end %>

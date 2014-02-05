@@ -1,0 +1,4 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{link_to( @character.name, character_show_url)} - Membership of #{@membership.group.label} #{content_tag( 'span', link_to( 'Edit', membership_edit_url))}".html_safe ) %>
+</div>
+<%= render :partial => 'membership_details', :object => @membership %>

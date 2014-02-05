@@ -1,0 +1,8 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{@character.name} - Add a new group membership" ) %>
+</div>
+
+<%= form_for @membership, :url => { :action => 'create' } do |f| %>
+	<%= render :partial => 'form', :object => f %>
+  	<%= submit_tag( 'Add membership', :class => 'submit' ) %>
+<% end %>

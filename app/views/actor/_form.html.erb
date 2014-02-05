@@ -1,0 +1,42 @@
+<%= render :partial => 'shared/error_message', :object => @actor %>
+
+<table>
+	<tbody>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Given name:', :for => 'actor_given_name' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_field 'given_name', :maxlength => 255 ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Middle name:', :for => 'actor_middle_name' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_field 'middle_name', :maxlength => 255 ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Family name:', :for => 'actor_family_name' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_field 'family_name', :maxlength => 255 ) ) %>
+		</tr>	
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Date of birth:', :for => 'actor_date_of_birth_1i' ) %>
+			</th>
+			<%= content_tag( 'td', form.date_select( 'date_of_birth', :start_year => 1900, :include_blank => true ), :class => 'date-select' ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Date of death:', :for => 'actor_date_of_death_1i' ) %>
+			</th>
+			<%= content_tag( 'td', form.date_select( 'date_of_death', :start_year => 1900, :include_blank => true ), :class => 'date-select' ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Notes:', :for => 'actor_note' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_area 'note' ) ) %>
+		</tr>
+	</tbody>
+</table>

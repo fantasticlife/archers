@@ -1,11 +1,18 @@
 <div class="section">
-	<%= content_tag( 'h1', @group.label ) %>
+	<%= content_tag( 'h1', "#{@group.label} #{content_tag( 'span', link_to( 'Edit', group_edit_url))}".html_safe ) %>
 	<%= render :partial => 'group_details', :object => @group %>
 </div>
 
 <div class="section">
 	<%= content_tag( 'h2', 'Members' ) %>
 	<ol>
-		<%= render :partial => 'membership/membership', :collection => @group.memberships %>
+		<%= render :partial => 'membership/membership_character', :collection => @group.memberships %>
 	</ol>
+</div>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Delete' ) %>
+	<%= form_for @group, :url => { :action => 'delete' } do |f| %>
+		<%= submit_tag( 'Delete group', data: { confirm: 'Are you sure?' } ) %>
+	<% end %>
 </div>

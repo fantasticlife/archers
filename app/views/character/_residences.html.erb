@@ -1,0 +1,12 @@
+<div class="section">
+	<%= content_tag( 'h2', 'Residences:' ) %>
+	<% if residences.empty? -%>
+		<%= content_tag( 'p', 'No residences to show.' ) %>
+	<% else -%>
+		<ol>
+			<%= render :partial => 'residence/residence_place', :collection => residences %>
+		</ol>
+	<% end -%>
+	<%= content_tag( 'h3', 'Add new' ) %>
+	<%= content_tag( 'p', link_to( 'Add a new residence', residence_new_url ) ) %>
+</div>

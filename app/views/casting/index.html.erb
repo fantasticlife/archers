@@ -1,0 +1,5 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{@character.name} - Actors" ) %>
+</div>
+
+<%= render :partial => 'character/castings', :object => @character.castings unless @character.castings.empty? %>

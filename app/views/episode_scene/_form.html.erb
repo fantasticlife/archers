@@ -94,7 +94,7 @@
 				<th>
 					<%= content_tag( 'label', 'Reveals relationships:', :for => 'scene_relationship_ids' ) %>
 				</th>
-				<%= content_tag( 'td', form.select( :relationship_ids, @relationships.collect {|r| [r.full_label, r.id]}, {}, :multiple => true, :class => 'multiselect' ) ) %>
+				<%= content_tag( 'td', form.select( :relationship_ids, @relationships.collect {|r| [r.display_label, r.id]}, {}, :multiple => true, :class => 'multiselect' ) ) %>
 			</tr>
 		</tbody>
 	</table>

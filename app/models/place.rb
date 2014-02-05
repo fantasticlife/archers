@@ -5,6 +5,7 @@ class Place < ActiveRecord::Base
   
   has_many :locations
   has_many :place_notes
+  has_many :residences
   
   validates :title, presence: true, length: {maximum: 255, :message => 'must be 255 characters or less' }
   
@@ -44,7 +45,9 @@ class Place < ActiveRecord::Base
   
 private
   def destroy_associations
+    self.place_notes.destroy_all
     self.locations.destroy_all
+    self.residences.destroy_all
     self.children.each do |p|
       p.destroy
     end

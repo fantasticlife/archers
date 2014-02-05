@@ -1,0 +1,7 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{@storyline.title} - Beat #{content_tag( 'span', link_to( 'Edit', beat_edit_url))}".html_safe ) %>
+</div>
+
+<div class="section">
+	<%= render :partial => 'beat_details', :object => @beat %>
+</div>

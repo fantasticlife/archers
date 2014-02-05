@@ -3,6 +3,7 @@
 </div>
 
 <%= render :partial => 'storyline_details', :object => @storyline %>
+<%= render :partial => 'beats', :object => @storyline.beats %>
 <%= render :partial => 'scenes', :object => @storyline unless @storyline.scenes.empty? %>
 <%= render :partial => 'major_characters', :object => @storyline unless @storyline.major_character_characters.empty? %>
 <%= render :partial => 'minor_characters', :object => @storyline unless @storyline.minor_character_characters.empty? %>

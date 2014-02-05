@@ -73,6 +73,10 @@ body * {
 	background-color: #fff;
 	color: #000;
 }
+.section-actor .section-actor {
+	background-color: #fff;
+	color: #000;
+}
 .section-crew .section-crew {
 	background-color: #fff;
 	color: #000;
@@ -135,6 +139,14 @@ p.tip {
 	color: #fff;
 }
 .sub-section-list .link-list {
+	background-color: #000;
+	color: #fff;
+}
+.sub-section-speak .link-speak {
+	background-color: #000;
+	color: #fff;
+}
+.sub-section-silent .link-silent {
 	background-color: #000;
 	color: #fff;
 }
