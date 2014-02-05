@@ -1,0 +1,8 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{@storyline.title} - add a new beat" ) %>
+</div>
+
+<%= form_for @beat, :url => { :action => 'create' } do |f| %>
+	<%= render :partial => 'form', :object => f %>
+  	<%= submit_tag( 'Add beat', :class => 'submit' ) %>
+<% end %>

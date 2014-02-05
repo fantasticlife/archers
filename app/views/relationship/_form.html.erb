@@ -1,0 +1,36 @@
+<%= render :partial => 'shared/error_message', :object => @relationship %>
+
+<table>
+	<tbody>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'From character:', :for => 'relationship_from_character_id' ) %>
+			</th>
+			<%= content_tag( 'td', form.select( :from_character_id, @characters.collect {|c| [c.name, c.id]}, {}, :multiple => false ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Relationship:', :for => 'relationship_relationship_type_id' ) %>
+			</th>
+			<%= content_tag( 'td', form.select( :relationship_type_id, @relationship_types.collect {|rt| [rt.label, rt.id]}, {}, :multiple => false ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'To character:', :for => 'relationship_to_character_id' ) %>
+			</th>
+			<%= content_tag( 'td', form.select( :to_character_id, @characters.collect {|c| [c.name, c.id]}, {}, :multiple => false ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Start date:', :for => 'relationship_start_date_1i' ) %>
+			</th>	
+			<%= content_tag( 'td', form.date_select( 'start_date', :start_year => 1800, :include_blank => true ), :class => 'date-select' ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'End date:', :for => 'relationship_end_date_1i' ) %>
+			</th>	
+			<%= content_tag( 'td', form.date_select( 'end_date', :start_year => 1800, :include_blank => true ), :class => 'date-select' ) %>
+		</tr>
+	</tbody>
+</table>

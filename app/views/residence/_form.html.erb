@@ -1,0 +1,26 @@
+<%= render :partial => 'shared/error_message', :object => @residence %>
+
+<%= form.hidden_field( :character_id ) %>
+
+<table class="section">
+	<tbody>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Place:', :for => 'residence_place_id' ) %>
+			</th>
+			<%= content_tag( 'td', form.select( :place_id, @places.collect {|p| [p.title, p.id]}, :multiple => false ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Start date:', :for => 'residence_start_date_1i' ) %>
+			</th>
+			<%= content_tag( 'td', form.date_select( 'start_date', :start_year => 1800, :include_blank => true ), :class => 'date-select' ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'End date:', :for => 'residence_end_date_1i' ) %>
+			</th>
+			<%= content_tag( 'td', form.date_select( 'end_date', :start_year => 1800, :include_blank => true ), :class => 'date-select' ) %>
+		</tr>
+	</tbody>
+</table>

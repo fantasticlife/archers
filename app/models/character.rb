@@ -29,6 +29,12 @@ class Character < ActiveRecord::Base
     :order => 'date, id'
   has_many :character_names,
     :order => 'date, id'
+  has_many :castings,
+    :order => 'start_date'
+  has_many :memberships,
+    :order => 'start_date'
+  has_many :residences,
+    :order => 'start_date'
     
   validates :name, presence: true, length: {maximum: 255, :message => 'must be 255 characters or less' }
   
@@ -106,8 +112,9 @@ class Character < ActiveRecord::Base
   
 private
   def destroy_associations
-    self.characters_names.destroy_all
-    self.characters_notes.destroy_all
+    self.castings.destroy_all
+    self.character_names.destroy_all
+    self.character_notes.destroy_all
     self.characters_occupations.destroy_all
     self.major_characters.destroy_all
     self.minor_characters.destroy_all
@@ -118,5 +125,7 @@ private
     self.relationships_to.each do |r|
       r.destroy
     end
+    self.memberships.destroy_all
+    self.residences.destroy_all
   end
 end

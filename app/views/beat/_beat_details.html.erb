@@ -1,0 +1,14 @@
+<table>
+	<tbody>
+		<% if beat_details.date -%>
+			<tr>
+				<%= content_tag( 'th', 'Date:' ) %>
+				<%= content_tag( 'td', beat_details.date.strftime( '%d %B %Y' ) )%>
+			</tr>
+		<% end -%>
+		<tr>
+			<%= content_tag( 'th', 'Note:' ) %>
+			<%= content_tag( 'td', beat_details.note )%>
+		</tr>
+	</tbody>
+</table>

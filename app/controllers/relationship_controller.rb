@@ -4,11 +4,8 @@ class RelationshipController < ApplicationController
     @page_title = 'Relationships'
     @section = 'relationship'
     @sub_section = 'list'
-    @relationships = Relationship.find(
-      :all, 
-      :select => 'r.*, rt.label as label',
-      :from => 'relationships r, relationship_types rt',
-      :conditions => 'r.relationship_type_id = rt.id',
+    @relationships = Relationship.find( 
+      :all,
       :order => 'created_at'
     )
   end
@@ -33,6 +30,13 @@ class RelationshipController < ApplicationController
     end
   end
   
+  def show
+    relationship = params[:relationship]
+    @relationship = Relationship.find( relationship )
+    @page_title = "Relationships - #{@relationship.display_label}"
+    @section = 'relationship'
+  end
+  
   def new
     @page_title = 'Add a new relationship'
     @section = 'relationship'
@@ -50,6 +54,28 @@ class RelationshipController < ApplicationController
       @section = 'relationship'
       get_form_dependencies
       render :action => 'new'
+    end
+  end
+
+  def edit
+    relationship = params[:relationship]
+    @relationship = Relationship.find( relationship )
+    @page_title = "#{@relationship.display_label} - Edit"
+    @section = 'relationship'
+    get_form_dependencies
+  end
+
+  def update
+    relationship = params[:relationship_to_update]
+    @relationship = Relationship.find( relationship )
+    if @relationship.update_attributes( params[:relationship] )
+      flash[:notice] = "Relationship details updated"
+      redirect_to relationship_list_url
+    else
+      @page_title = "#{@relationship.display_label} - Edit"
+      @section = 'relationship'
+      get_form_dependencies
+      render( :action => 'edit' )
     end
   end
 

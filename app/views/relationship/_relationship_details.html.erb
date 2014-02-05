@@ -1,0 +1,28 @@
+<table>
+	<tbody>
+		<tr>
+			<%= content_tag( 'th', 'From:' ) %>
+			<%= content_tag( 'td', relationship_details.from_character.name ) %>
+		</tr>
+		<tr>
+			<%= content_tag( 'th', 'Relationship:' ) %>
+			<%= content_tag( 'td', relationship_details.relationship_type.label ) %>
+		</tr>
+		<tr>
+			<%= content_tag( 'th', 'To:' ) %>
+			<%= content_tag( 'td', relationship_details.to_character.name ) %>
+		</tr>
+		<% if relationship_details.start_date -%>
+			<tr>
+				<%= content_tag( 'th', 'Start date:' ) %>
+				<%= content_tag( 'td', relationship_details.start_date.strftime( '%d %B %Y' ) ) %>
+			</tr>
+		<% end -%>
+		<% if relationship_details.end_date -%>
+			<tr>
+				<%= content_tag( 'th', 'End date:' ) %>
+				<%= content_tag( 'td', relationship_details.end_date.strftime( '%d %B %Y' ) ) %>
+			</tr>
+		<% end -%>
+	</tbody>
+</table>

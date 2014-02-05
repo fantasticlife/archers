@@ -1,0 +1,12 @@
+<div class="section">
+	<%= content_tag( 'h2', 'Beats:' ) %>
+	<% if beats.empty? -%>
+		<%= content_tag( 'p', 'No name beats to show.' ) %>
+	<% else -%>
+		<ol>
+			<%= render :partial => 'beat/beat', :collection => beats %>
+		</ol>
+	<% end -%>
+	<%= content_tag( 'h3', 'Add new' ) %>
+	<%= content_tag( 'p', link_to( 'Add a new beat', beat_new_url ) ) %>
+</div>

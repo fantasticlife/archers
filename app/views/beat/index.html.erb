@@ -1,0 +1,5 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{@storyline.title} - Beats" ) %>
+</div>
+
+<%= render :partial => 'storyline/beats', :object => @storyline.beats unless @storyline.beats.empty? %>

@@ -1,0 +1,5 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{@relationship.display_label} #{content_tag( 'span', link_to( 'Edit', relationship_edit_url))}".html_safe ) %>
+	<%= render :partial => 'relationship_details', :object => @relationship %>
+</div>
+

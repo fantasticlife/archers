@@ -1,0 +1,26 @@
+<%= render :partial => 'shared/error_message', :object => @casting %>
+
+<%= form.hidden_field( :character_id ) %>
+
+<table>
+	<tbody>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Actor:', :for => 'casting_actor_id' ) %>
+			</th>	
+			<%= content_tag( 'td', form.select( :actor_id, @actors.collect {|a| [a.name, a.id]}, {}, :multiple => false ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Start date:', :for => 'casting_start_date_1i' ) %>
+			</th>
+			<%= content_tag( 'td', form.date_select( 'start_date', :start_year => 1950, :include_blank => true ), :class => 'date-select' ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'End date:', :for => 'casting_end_date_1i' ) %>
+			</th>
+			<%= content_tag( 'td', form.date_select( 'end_date', :start_year => 1950, :include_blank => true ), :class => 'date-select' ) %>
+		</tr>
+	</tbody>
+</table>

@@ -6,6 +6,7 @@
 <%= render :partial => 'children', :object => @place unless @place.children.empty? %>
 <%= render :partial => 'scenes', :object => @place unless @place.scenes.empty? %>
 <%= render :partial => 'births', :object => @place unless @place.births.empty? %>
+<%= render :partial => 'residences', :object => @place unless @place.residences.empty? %>
 <%= render :partial => 'notes', :object => @place.place_notes %>
 
 <div class="section">

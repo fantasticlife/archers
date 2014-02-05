@@ -1,0 +1,8 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{link_to( @group.label, group_show_url( :group => @group ) )} Edit".html_safe ) %>
+</div>
+
+<%= form_for @group, :url => { :action => 'update', :group_to_update => @group } do |f| %>
+	<%= render :partial => 'form', :object => f %>
+  	<%= submit_tag( 'Update', :class => 'submit' ) %>
+<% end %>

@@ -1,10 +1,12 @@
-<tr>
-	<%= content_tag( 'td', link_to( relationship.from_character.name, character_show_url( :character => relationship.from_character ) ) ) %>
-	<%= content_tag( 'td', relationship.label ) %>
-	<%= content_tag( 'td', link_to( relationship.to_character.name, character_show_url( :character => relationship.to_character ) ) ) %>
-	<td>
-		<%= form_for relationship, :url => { :action => 'delete', :relationship => relationship } do |f| %>
-			<%= submit_tag( 'Delete relationship', data: { confirm: 'Are you sure?' } ) %>
-		<% end %>
-	</td>
-</tr>
+<li>
+	<%= content_tag( 'h3', "#{link_to( relationship.from_character.name, character_show_url( :character => relationship.from_character ))} #{relationship.relationship_type.label.downcase} of #{link_to( relationship.to_character.name, character_show_url( :character => relationship.to_character ) )}".html_safe ) %>
+	<%= content_tag( 'p', relationship.dates ) unless relationship.dates.empty? %>
+	<ul class="cm buttons">
+		<%= content_tag( 'li', link_to( 'Edit', relationship_edit_url( :relationship => relationship ) ) ) %>
+		<li>
+			<%= form_for relationship, :url => { :controller => 'relationship', :action => 'delete', :relationship => relationship } do |f| %>
+				<%= submit_tag( 'Delete', data: { confirm: 'Are you sure?' } ) %>
+			<% end %>
+		</li>
+	</ul>
+</li>

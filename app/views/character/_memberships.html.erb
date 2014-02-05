@@ -1,0 +1,12 @@
+<div class="section">
+	<%= content_tag( 'h2', 'Group memberships:' ) %>
+	<% if memberships.empty? -%>
+		<%= content_tag( 'p', 'No group memberships to show.' ) %>
+	<% else -%>
+		<ol>
+			<%= render :partial => 'membership/membership_group', :collection => memberships %>
+		</ol>
+	<% end -%>
+	<%= content_tag( 'h3', 'Add new' ) %>
+	<%= content_tag( 'p', link_to( 'Add a new membership', membership_new_url ) ) %>
+</div>

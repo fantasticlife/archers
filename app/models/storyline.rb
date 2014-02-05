@@ -16,6 +16,8 @@ class Storyline < ActiveRecord::Base
     :source => :character,
     :order => 'name'
   has_many :scenes_storylines
+  has_many :beats,
+    :order => 'date'
     
   validates :title, presence: true, length: {maximum: 255, :message => 'must be 255 characters or less' }
   
@@ -36,5 +38,6 @@ private
     self.major_characters.destroy_all
     self.minor_characters.destroy_all
     self.scenes_storylines.destroy_all
+    self.beats.destroy_all
   end
 end

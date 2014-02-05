@@ -1,0 +1,5 @@
+<li>
+	<%= content_tag( 'h3', link_to( membership_character.character.name, character_show_url( :character => membership_character.character ) ) ) %>
+	<%= content_tag( 'p', membership_character.dates ) unless membership_character.dates.empty? %>
+	<%= content_tag( 'p', membership_character.membership_role.label ) if membership_character.membership_role %>
+</li>

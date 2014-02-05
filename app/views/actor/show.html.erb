@@ -1,0 +1,13 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{@actor.name} #{content_tag( 'span', link_to( 'Edit', actor_edit_url))}".html_safe ) %>
+</div>
+
+<%= render :partial => 'actor_details', :object => @actor %>
+<%= render :partial => 'castings', :object => @actor.castings unless @actor.castings.empty? %>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Delete' ) %>
+	<%= form_for @actor, :url => { :action => 'delete' } do |f| %>
+		<%= submit_tag( 'Delete actor', data: { confirm: 'Are you sure?' } ) %>
+	<% end %>
+</div>

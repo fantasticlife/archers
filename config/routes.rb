@@ -51,6 +51,8 @@ Homefront::Application.routes.draw do
   root :to => 'home#index'
   
   match '/characters' => 'character#index', :as => :character_list
+  match '/characters/speaks' => 'character#speak', :as => :character_speak
+  match '/characters/silent' => 'character#silent', :as => :character_silent
   match '/characters/cooccurrences' => 'character#cooccurrence', :as => :character_cooccurrence
   match '/characters/new' => 'character#new', :as => :character_new
   match '/characters/create' => 'character#create', :as => :character_create
@@ -83,6 +85,9 @@ Homefront::Application.routes.draw do
   match '/relationships/graphviz' => 'relationship#graphviz', :as => :relationship_graphviz
   match '/relationships/new' => 'relationship#new', :as => :relationship_new
   match '/relationships/create' => 'relationship#create', :as => :relationship_create
+  match '/relationships/:relationship' => 'relationship#show', :as => :relationship_show
+  match '/relationships/:relationship/edit' => 'relationship#edit', :as => :relationship_edit
+  match '/relationships/:relationship_to_update/update' => 'relationship#update', :as => :relationship_update
   match '/relationships/:relationship/delete' => 'relationship#delete', :as => :relationship_delete
   
   match '/relationship-types' => 'relationship_type#index', :as => :relationship_type_list
@@ -102,7 +107,28 @@ Homefront::Application.routes.draw do
   match '/occupations/:occupation/delete' => 'occupation#delete', :as => :occupation_delete
   
   match '/groups' => 'group#index', :as => :group_list
+  match '/groups/new' => 'group#new', :as => :group_new
+  match '/groups/create' => 'group#create', :as => :group_create
   match '/groups/:group' => 'group#show', :as => :group_show
+  match '/groups/:group/edit' => 'group#edit', :as => :group_edit
+  match '/groups/:group_to_update/update' => 'group#update', :as => :group_update
+  match '/groups/:group/delete' => 'group#delete', :as => :group_delete
+  
+  match '/characters/:character/memberships' => 'membership#index', :as => :membership_list
+  match '/characters/:character/memberships/new' => 'membership#new', :as => :membership_new
+  match '/characters/:character/memberships/create' => 'membership#create', :as => :membership_create
+  match '/characters/:character/memberships/:membership' => 'membership#show', :as => :membership_show
+  match '/characters/:character/memberships/:membership/edit' => 'membership#edit', :as => :membership_edit
+  match '/characters/:character/memberships/:membership_to_update/update' => 'membership#update', :as => :membership_update
+  match '/characters/:character/memberships/:membership/delete' => 'membership#delete', :as => :membership_delete
+  
+  match '/characters/:character/residences' => 'residence#index', :as => :residence_list
+  match '/characters/:character/residences/new' => 'residence#new', :as => :residence_new
+  match '/characters/:character/residences/create' => 'residence#create', :as => :residence_create
+  match '/characters/:character/residences/:residence' => 'residence#show', :as => :residence_show
+  match '/characters/:character/residences/:residence/edit' => 'residence#edit', :as => :residence_edit
+  match '/characters/:character/residences/:residence_to_update/update' => 'residence#update', :as => :residence_update
+  match '/characters/:character/residences/:residence/delete' => 'residence#delete', :as => :residence_delete
   
   match '/places' => 'place#index', :as => :place_list
   match '/places/new' => 'place#new', :as => :place_new
@@ -128,6 +154,14 @@ Homefront::Application.routes.draw do
   match '/storylines/:storyline_to_update/update' => 'storyline#update', :as => :storyline_update
   match '/storylines/:storyline/delete' => 'storyline#delete', :as => :storyline_delete
   
+  match '/storylines/:storyline/beats' => 'beat#index', :as => :beat_list
+  match '/storylines/:storyline/beats/new' => 'beat#new', :as => :beat_new
+  match '/storylines/:storyline/beats/create' => 'beat#create', :as => :beat_create
+  match '/storylines/:storyline/beats/:beat' => 'beat#show', :as => :beat_show
+  match '/storylines/:storyline/beats/:beat/edit' => 'beat#edit', :as => :beat_edit
+  match '/storylines/:storyline/beats/:beat_to_update/update' => 'beat#update', :as => :beat_update
+  match '/storylines/:storyline/beats/:beat/delete' => 'beat#delete', :as => :beat_delete
+  
   match '/storylines/:storyline/scenes' => 'storyline_scene#index', :as => :storyline_scene_list
   match '/storylines/:storyline/scenes/:scene' => 'storyline_scene#show', :as => :storyline_scene_show
   
@@ -149,6 +183,22 @@ Homefront::Application.routes.draw do
   match '/scenes/:scene/edit' => 'scene#edit', :as => :scene_edit
   match '/scenes/:scene_to_update/update' => 'scene#update', :as => :scene_update
   match '/scenes/:scene/delete' => 'scene#delete', :as => :scene_delete
+  
+  match '/actors' => 'actor#index', :as => :actor_list
+  match '/actors/new' => 'actor#new', :as => :actor_new
+  match '/actors/create' => 'actor#create', :as => :actor_create
+  match '/actors/:actor' => 'actor#show', :as => :actor_show
+  match '/actors/:actor/edit' => 'actor#edit', :as => :actor_edit
+  match '/actors/:actor_to_update/update' => 'actor#update', :as => :actor_update
+  match '/actors/:actor/delete' => 'actor#delete', :as => :actor_delete
+  
+  match '/characters/:character/castings' => 'casting#index', :as => :casting_list
+  match '/characters/:character/castings/new' => 'casting#new', :as => :casting_new
+  match '/characters/:character/castings/create' => 'casting#create', :as => :casting_create
+  match '/characters/:character/castings/:casting' => 'casting#show', :as => :casting_show
+  match '/characters/:character/castings/:casting/edit' => 'casting#edit', :as => :casting_edit
+  match '/characters/:character/castings/:casting_to_update/update' => 'casting#update', :as => :casting_update
+  match '/characters/:character/castings/:casting/delete' => 'casting#delete', :as => :casting_delete
   
   match '/crews' => 'crew#index', :as => :crew_list
   match '/crews/new' => 'crew#new', :as => :crew_new

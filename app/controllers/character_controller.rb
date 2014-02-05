@@ -3,11 +3,34 @@ class CharacterController < ApplicationController
   def index
     @characters = Character.find(
       :all,
+      :conditions => 'speaks = true',
       :order => 'name'
     )
     @page_title = 'Characters'
     @section = 'character'
     @sub_section = 'list'
+  end
+
+  def speak
+    @characters = Character.find(
+      :all,
+      :conditions => 'speaks = true',
+      :order => 'name'
+    )
+    @page_title = 'Speaking characters'
+    @section = 'character'
+    @sub_section = 'speak'
+  end
+
+  def silent
+    @characters = Character.find(
+      :all,
+      :conditions => 'speaks = false',
+      :order => 'name'
+    )
+    @page_title = 'Silent characters'
+    @section = 'character'
+    @sub_section = 'silent'
   end
   
   def cooccurrence

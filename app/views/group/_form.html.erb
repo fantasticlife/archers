@@ -1,0 +1,30 @@
+<%= render :partial => 'shared/error_message', :object => @group %>
+
+<table>
+	<tbody>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Label:', :for => 'group_label' ) %>
+			</th>
+			<%= content_tag( 'td', form.text_field( 'label' ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Start date:', :for => 'group_start_date_1i' ) %>
+			</th>	
+			<%= content_tag( 'td', form.date_select( 'start_date', :start_year => 1800, :include_blank => true ), :class => 'date-select' ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'End date:', :for => 'group_end_date_1i' ) %>
+			</th>	
+			<%= content_tag( 'td', form.date_select( 'end_date', :start_year => 1800, :include_blank => true ), :class => 'date-select' ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Notes:', :for => 'group_note' ) %>
+			</th>
+			<%= content_tag( 'td', form.text_area( 'note' ) ) %>
+		</tr>
+	</tbody>
+</table>

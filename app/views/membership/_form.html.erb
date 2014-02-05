@@ -1,0 +1,32 @@
+<%= render :partial => 'shared/error_message', :object => @membership %>
+
+<%= form.hidden_field( :character_id ) %>
+
+<table class="section">
+	<tbody>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Group:', :for => 'membership_group_id' ) %>
+			</th>
+			<%= content_tag( 'td', form.select( :group_id, @groups.collect {|g| [g.label, g.id]}, :multiple => false ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Membership role:', :for => 'membership_membership_role_id' ) %>
+			</th>
+			<%= content_tag( 'td', form.select( :membership_role_id, @membership_roles.collect {|mr| [mr.label, mr.id]}, :multiple => false ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Start date:', :for => 'membership_start_date_1i' ) %>
+			</th>
+			<%= content_tag( 'td', form.date_select( 'start_date', :start_year => 1800, :include_blank => true ), :class => 'date-select' ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'End date:', :for => 'membership_end_date_1i' ) %>
+			</th>
+			<%= content_tag( 'td', form.date_select( 'end_date', :start_year => 1800, :include_blank => true ), :class => 'date-select' ) %>
+		</tr>
+	</tbody>
+</table>
