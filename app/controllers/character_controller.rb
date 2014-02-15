@@ -9,8 +9,11 @@ class CharacterController < ApplicationController
     @page_title = 'Characters'
     @section = 'character'
     @sub_section = 'list'
+    respond_to do |format|
+      format.html
+      format.ttl
+    end
   end
-
   def speak
     @characters = Character.find(
       :all,
@@ -21,7 +24,6 @@ class CharacterController < ApplicationController
     @section = 'character'
     @sub_section = 'speak'
   end
-
   def silent
     @characters = Character.find(
       :all,
@@ -32,7 +34,6 @@ class CharacterController < ApplicationController
     @section = 'character'
     @sub_section = 'silent'
   end
-  
   def cooccurrence
     respond_to do |format|
       format.html {
@@ -47,17 +48,15 @@ class CharacterController < ApplicationController
       }
     end
   end
-  
   def show
     character = params[:character]
-    @character = Character.find( character )
+    @character = Character.find_by_guid( character )
     @page_title = @character.name
     @section = 'character'
   end
-  
   def neighbours
     character = params[:character]
-    @character = Character.find( character )
+    @character = Character.find_by_guid( character )
     respond_to do |format|
       format.html {
         @page_title = "#{@character.name} - Neighbours"
@@ -73,19 +72,17 @@ class CharacterController < ApplicationController
       }
     end
   end
-  
   def new
     @character = Character.new
     get_form_dependencies
     @page_title = "Add a new character"
     @section = 'character'
   end
-  
   def create
     @character = Character.new( params[:character] )
     if @character.save
       flash[:notice] = "Character created"
-      redirect_to character_show_url( :character => @character )
+      redirect_to character_show_url( :character => @character.guid )
     else
       @page_title = "Add a new character"
       @section = 'character'
@@ -93,21 +90,19 @@ class CharacterController < ApplicationController
       render :action => 'new'
     end
   end
-  
   def edit
     character = params[:character]
-    @character = Character.find( character )
+    @character = Character.find_by_guid( character )
     get_form_dependencies
     @page_title = "#{@character.name} - Edit"
     @section = 'character'
   end
-  
   def update
     character_to_update = params[:character_to_update]
-    @character = Character.find( character_to_update )
+    @character = Character.find_by_guid( character_to_update )
     if @character.update_attributes( params[:character] )
       flash[:notice] = "Character details updated"
-      redirect_to character_show_url( :character => @character )
+      redirect_to character_show_url( :character => @character.guid )
     else
       @page_title = "#{@character.name} - Edit"
       @section = 'character'
@@ -115,13 +110,12 @@ class CharacterController < ApplicationController
       render( :action => 'edit' )
     end
   end
-  
   def delete
     character = params[:character]
-    @character = Character.find( character )
+    @character = Character.find_by_guid( character )
     @character.destroy
     flash[:notice] = "Character deleted"
-    redirect_to character_list_url
+    redirect_to character_speak_url
   end
   
   
@@ -136,7 +130,6 @@ private
     end
     nodes
   end
-  
   def get_edges( characters )
     character_ids = characters.map {|c| c.id}
     
@@ -152,7 +145,6 @@ private
     end
     edges
   end
-  
   def get_neighbour_edges( characters )
     character_ids = characters.map {|c| c.id}
     
@@ -168,7 +160,6 @@ private
     end
     edges
   end
-  
   def get_form_dependencies
     @character_types = CharacterType.find(
       :all,

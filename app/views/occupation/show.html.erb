@@ -6,7 +6,7 @@
 
 <div class="section">
 	<%= content_tag( 'h2', 'Delete' ) %>
-	<%= form_for @occupation, :url => { :action => 'delete' } do |f| %>
+	<%= form_for @occupation, :url => { :action => 'delete', :occupation => @occupation.guid } do |f| %>
 		<%= submit_tag( 'Delete occupation', data: { confirm: 'Are you sure?' } ) %>
 	<% end %>
 </div>

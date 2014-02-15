@@ -5,31 +5,31 @@
 			<% if episode_crew.writer %>
 				<tr>
 					<%= content_tag( 'th', 'Writer:' ) %>
-					<%= content_tag( 'td', link_to( episode_crew.writer.name, crew_show_url( :crew => episode_crew.writer ) ) ) %>
+					<%= content_tag( 'td', link_to( episode_crew.writer.name, crew_show_url( :crew => episode_crew.writer.guid ) ) ) %>
 				</tr>
 			<% end -%>
 			<% if episode_crew.producer %>
 				<tr>
 					<%= content_tag( 'th', 'Producer:' ) %>
-					<%= content_tag( 'td', link_to( episode_crew.producer.name, crew_show_url( :crew => episode_crew.producer ) ) ) %>
+					<%= content_tag( 'td', link_to( episode_crew.producer.name, crew_show_url( :crew => episode_crew.producer.guid ) ) ) %>
 				</tr>
 			<% end -%>
 			<% if episode_crew.editor %>
 				<tr>
 					<%= content_tag( 'th', 'Editor:' ) %>
-					<%= content_tag( 'td', link_to( episode_crew.editor.name, crew_show_url( :crew => episode_crew.editor ) ) ) %>
+					<%= content_tag( 'td', link_to( episode_crew.editor.name, crew_show_url( :crew => episode_crew.editor.guid ) ) ) %>
 				</tr>
 			<% end -%>
 			<% if episode_crew.director %>
 				<tr>
 					<%= content_tag( 'th', 'Director:' ) %>
-					<%= content_tag( 'td', link_to( episode_crew.director.name, crew_show_url( :crew => episode_crew.director ) ) ) %>
+					<%= content_tag( 'td', link_to( episode_crew.director.name, crew_show_url( :crew => episode_crew.director.guid ) ) ) %>
 				</tr>
 			<% end -%>
 			<% if episode_crew.researcher %>
 				<tr>
 					<%= content_tag( 'th', 'Researcher:' ) %>
-					<%= content_tag( 'td', link_to( episode_crew.researcher.name, crew_show_url( :crew => episode_crew.researcher ) ) ) %>
+					<%= content_tag( 'td', link_to( episode_crew.researcher.name, crew_show_url( :crew => episode_crew.researcher.guid ) ) ) %>
 				</tr>
 			<% end -%>
 		</tbody>

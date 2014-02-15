@@ -3,7 +3,7 @@
 		<%= content_tag( 'p', script_line.line, :class => 'direction' ) %>
 	<% else -%>
 		<p>
-			<%= link_to( script_line.character.name, character_show_url( :character => script_line.character ) ) %>
+			<%= link_to( script_line.character.name, character_show_url( :character => script_line.character.guid ) ) %>
 			:
 			<%= script_line.line %>
 		</p>

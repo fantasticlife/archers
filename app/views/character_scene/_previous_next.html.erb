@@ -1,4 +1,4 @@
 <div class="cm previous-next section">
-	<%= link_to( 'Previous', character_scene_show_url( :scene => previous_next.previous_in_character( @character ) ), :class => 'previous' ) if previous_next.previous_in_character( @character ) %>
-	<%= link_to( 'Next', character_scene_show_url( :scene => previous_next.next_in_character( @character ) ), :class => 'next' ) if previous_next.next_in_character( @character )  %>
+	<%= link_to( 'Previous', character_scene_show_url( :scene => previous_next.previous_in_character( @character ).guid ), :class => 'previous' ) if previous_next.previous_in_character( @character ) %>
+	<%= link_to( 'Next', character_scene_show_url( :scene => previous_next.next_in_character( @character ).guid ), :class => 'next' ) if previous_next.next_in_character( @character )  %>
 </div>

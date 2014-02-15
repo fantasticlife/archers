@@ -7,26 +7,23 @@ class PlaceController < ApplicationController
     @page_title = 'Places'
     @section = 'place'
   end
-
   def show
     place = params[:place]
-    @place = Place.find( place )
+    @place = Place.find_by_guid( place )
     @page_title = @place.title
     @section = 'place'
   end
-  
   def new
     @place = Place.new
     get_form_dependencies
     @page_title = "Add a new place"
     @section = 'place'
   end
-  
   def create
     @place = Place.new( params[:place] )
     if @place.save
       flash[:notice] = "Place created"
-      redirect_to place_show_url( :place => @place )
+      redirect_to place_show_url( :place => @place.guid )
     else
       @page_title = "Add a new place"
       @section = 'place'
@@ -34,21 +31,19 @@ class PlaceController < ApplicationController
       render :action => 'new'
     end
   end
-  
   def edit
     place = params[:place]
-    @place = Place.find( place )
+    @place = Place.find_by_guid( place )
     get_form_dependencies
     @page_title = "#{@place.title} - Edit"
     @section = 'place'
   end
-  
   def update
     place = params[:place_to_update]
-    @place = Place.find( place )
+    @place = Place.find_by_guid( place )
     if @place.update_attributes( params[:place] )
       flash[:notice] = "Place details updated"
-      redirect_to place_show_url( :place => @place )
+      redirect_to place_show_url( :place => @place.guid )
     else
       @page_title = "#{@place.label} - Edit"
       @section = 'place'
@@ -56,10 +51,9 @@ class PlaceController < ApplicationController
       render( :action => 'edit' )
     end
   end
-  
   def delete
     place = params[:place]
-    @place = Place.find( place )
+    @place = Place.find_by_guid( place )
     @place.destroy
     flash[:notice] = "Place deleted"
     redirect_to place_list_url

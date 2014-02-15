@@ -52,7 +52,7 @@
 				<th>
 					<%= content_tag( 'label', 'Date:', :for => 'scene_event_date' ) %>
 				</th>
-				<%= content_tag( 'td', form.date_select( 'event_date', :start_year => 1900, :include_blank => true ), :class => 'date-select' ) %>
+				<%= content_tag( 'td', form.date_select( 'event_date', :include_blank => true ), :class => 'date-select' ) %>
 			</tr>
 			<tr>
 				<th>

@@ -1,11 +1,11 @@
 <li>
-	<%= content_tag( 'h3', link_to( membership_group.group.label, group_show_url( :group => membership_group.group ) ) ) %>
+	<%= content_tag( 'h3', link_to( membership_group.group.label, group_show_url( :group => membership_group.group.guid ) ) ) %>
 	<%= content_tag( 'p', membership_group.dates ) unless membership_group.dates.empty? %>
 	<%= content_tag( 'p', membership_group.membership_role.label ) if membership_group.membership_role %>
 	<ul class="cm buttons">
-		<%= content_tag( 'li', link_to( 'Edit', membership_edit_url( :membership => membership_group ) ) ) %>
+		<%= content_tag( 'li', link_to( 'Edit', membership_edit_url( :membership => membership_group.guid ) ) ) %>
 		<li>
-			<%= form_for membership_group, :url => { :controller => 'membership', :action => 'delete', :membership => membership_group } do |f| %>
+			<%= form_for membership_group, :url => { :controller => 'membership', :action => 'delete', :membership => membership_group.guid } do |f| %>
 				<%= submit_tag( 'Delete', data: { confirm: 'Are you sure?' } ) %>
 			<% end %>
 		</li>

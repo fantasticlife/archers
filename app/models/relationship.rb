@@ -3,6 +3,7 @@ class Relationship < ActiveRecord::Base
   
   attr_accessor :source_id, :target_id, :source_index, :target_index, :value
   
+  before_save :assign_guid
   before_destroy :destroy_associations
   
   belongs_to :relationship_type
@@ -35,6 +36,10 @@ class Relationship < ActiveRecord::Base
 
 
 private
+  def assign_guid
+    self.guid = SecureRandom.uuid unless self.guid
+  end
+  
   def destroy_associations
     self.relationship_reveals.destroy_all
   end

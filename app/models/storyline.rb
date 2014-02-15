@@ -1,6 +1,7 @@
 class Storyline < ActiveRecord::Base
   attr_accessible :title, :short_synopsis, :long_synopsis, :article, :position, :major_character_character_ids, :minor_character_character_ids
   
+  before_save :assign_guid
   before_destroy :destroy_associations
   
   has_many :major_characters
@@ -34,6 +35,10 @@ class Storyline < ActiveRecord::Base
   
   
 private
+  def assign_guid
+    self.guid = SecureRandom.uuid unless self.guid
+  end
+  
   def destroy_associations
     self.major_characters.destroy_all
     self.minor_characters.destroy_all

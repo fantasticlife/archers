@@ -1,0 +1,10 @@
+<li>
+	<%= content_tag( 'h3', link_to( tleo.title, "http://www.bbc.co.uk/programmes/#{tleo.pid}" ) ) %>
+	<ul class="cm buttons">
+		<li>
+			<%= form_for tleo, :url => { :controller => 'tleo', :action => 'delete', :tleo => tleo.guid } do |f| %>
+				<%= submit_tag( 'Delete', data: { confirm: 'Are you sure?' } ) %>
+			<% end %>
+		</li>
+	</ul>
+</li>

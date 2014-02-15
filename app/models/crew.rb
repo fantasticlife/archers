@@ -1,6 +1,8 @@
 class Crew < ActiveRecord::Base
   attr_accessible :given_name, :family_name, :note
   
+  before_save :assign_guid
+  
   def name
     "#{self.given_name} #{self.family_name}"
   end
@@ -43,5 +45,12 @@ class Crew < ActiveRecord::Base
       :conditions => ["researcher_id = ?", self], 
       :order => 'tx_date, position'
     )
+  end
+
+
+
+private
+  def assign_guid
+    self.guid = SecureRandom.uuid unless self.guid
   end
 end

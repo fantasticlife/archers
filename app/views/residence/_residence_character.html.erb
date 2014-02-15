@@ -1,4 +1,4 @@
 <li>
-	<%= content_tag( 'h3', link_to( residence_character.character.name, character_show_url( :character => residence_character.character ) ) ) %>
+	<%= content_tag( 'h3', link_to( residence_character.character.name, character_show_url( :character => residence_character.character.guid ) ) ) %>
 	<%= content_tag( 'p', residence_character.dates ) unless residence_character.dates.empty? %>
 </li>

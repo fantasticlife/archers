@@ -5,3 +5,4 @@
 # Mime::Type.register_alias "text/html", :iphone
 
 Mime::Type.register "application/txt", :gv
+Mime::Type.register "application/ttl", :ttl

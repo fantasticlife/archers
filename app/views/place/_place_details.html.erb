@@ -24,7 +24,7 @@
 	<% if place_details.parent_place -%>
 		<tr>
 			<%= content_tag( 'th', 'Is in:' ) %>
-			<%= content_tag( 'td', link_to( place_details.parent_place.title, place_show_url( :place => place_details.parent_place ) ) ) %>
+			<%= content_tag( 'td', link_to( place_details.parent_place.title, place_show_url( :place => place_details.parent_place.guid ) ) ) %>
 		</tr>
 	<% end -%>
 	<% unless place_details.notes.blank? -%>

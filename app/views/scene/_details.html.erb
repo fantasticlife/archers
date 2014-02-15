@@ -5,13 +5,13 @@
 			<% unless details.episode.blank? -%>
 				<tr>
 					<%= content_tag( 'th', 'Episode:' ) %>
-					<%= content_tag( 'td', link_to( details.episode.display_title, episode_show_url( :episode => details.episode ) ) ) %>
+					<%= content_tag( 'td', link_to( details.episode.display_title, episode_show_url( :episode => details.episode.guid ) ) ) %>
 				</tr>
 			<% end -%>
 			<% if details.parent -%>
 				<tr>
 					<%= content_tag( 'th', 'Part of:' ) %>
-					<%= content_tag( 'td', link_to( details.parent.display_title_with_episode, scene_show_url( :scene => details.parent ) ) ) %>
+					<%= content_tag( 'td', link_to( details.parent.display_title_with_episode, scene_show_url( :scene => details.parent.guid ) ) ) %>
 				</tr>
 			<% end -%>
 			<% unless details.segment_position.blank? -%>

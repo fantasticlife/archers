@@ -2,14 +2,13 @@ class EpisodeSceneController < ApplicationController
   
   def index
     episode = params[:episode]
-    @episode = Episode.find( episode )
+    @episode = Episode.find_by_guid( episode )
     @page_title = "#{@episode.display_title} - Scenes"
     @section = 'episode'
   end
-  
   def new
     episode = params[:episode]
-    @episode = Episode.find( episode )
+    @episode = Episode.find_by_guid( episode )
     @scene = Scene.new
     @scene.episode = @episode
     get_form_dependencies

@@ -1,6 +1,7 @@
 class Group < ActiveRecord::Base
   attr_accessible :label, :start_date, :end_date, :note
   
+  before_save :assign_guid
   before_destroy :destroy_associations
   
   has_many :memberships
@@ -39,6 +40,10 @@ class Group < ActiveRecord::Base
 
 
 private
+  def assign_guid
+    self.guid = SecureRandom.uuid unless self.guid
+  end
+  
   def destroy_associations
     self.memberships.destroy_all
   end

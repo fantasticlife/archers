@@ -1,8 +1,9 @@
 class Character < ActiveRecord::Base
-  attr_accessible :pid, :name, :lookup_label, :character_type_id, :gender, :date_of_birth, :place_of_birth, :strapline, :short_synopsis, :long_synopsis, :notes, :major_storyline_ids, :minor_storyline_ids, :known_as, :speaks, :date_of_death, :character_title_id, :character_appearance_type_id, :occupation_ids
+  attr_accessible :pid, :name, :lookup_label, :character_type_id, :gender, :date_of_birth, :place_of_birth, :strapline, :short_synopsis, :long_synopsis, :notes, :major_storyline_ids, :minor_storyline_ids, :known_as, :speaks, :date_of_death, :place_of_death, :character_title_id, :character_appearance_type_id, :occupation_ids
   
   attr_accessor :source_index, :target_index, :value
   
+  before_save :assign_guid
   before_destroy :destroy_associations
   
   belongs_to :character_title
@@ -61,6 +62,10 @@ class Character < ActiveRecord::Base
   def birth_place
     Place.find( self.place_of_birth )
   end
+
+  def death_place
+    Place.find( self.place_of_death )
+  end
   
   def relationships
     Relationship.find(
@@ -111,6 +116,10 @@ class Character < ActiveRecord::Base
   
   
 private
+  def assign_guid
+    self.guid = SecureRandom.uuid unless self.guid
+  end
+  
   def destroy_associations
     self.castings.destroy_all
     self.character_names.destroy_all

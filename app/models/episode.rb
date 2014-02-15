@@ -1,21 +1,24 @@
 class Episode < ActiveRecord::Base
   attr_accessible :pid, :title, :long_synopsis, :position, :tx_date, :series, :block, :writer_id, :producer_id, :editor_id, :director_id, :researcher_id
   
+  before_save :assign_guid
   before_destroy :destroy_associations
   
   has_many :scenes,
     :order => 'segment_position'
     
   def display_title
-    if self.title
-      self.title
+    title = 'dog'
+    if self.title and self.title != ''
+      title = self.title
     elsif self.tx_date
-      self.tx_date.strftime( DATE_FORMAT )
-    elsif self.position
-      self.position
+      title = self.tx_date.strftime( DATE_FORMAT )
+    elsif self.position and self.position != ''
+      title = self.position
     else
-      'No title'
+      title = 'No title'
     end
+    title
   end
     
   def previous
@@ -82,6 +85,10 @@ class Episode < ActiveRecord::Base
     
     
 private
+  def assign_guid
+    self.guid = SecureRandom.uuid unless self.guid
+  end
+  
   def destroy_associations
     self.scenes.destroy_all
   end
