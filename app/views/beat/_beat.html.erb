@@ -2,9 +2,9 @@
 	<%= content_tag( 'h3', beat.date.strftime( '%d %B %Y' ) ) if beat.date %>
 	<%= content_tag( 'p', beat.note ) %>
 	<ul class="cm buttons">
-		<%= content_tag( 'li', link_to( 'Edit', beat_edit_url( :beat => beat ) ) ) %>
+		<%= content_tag( 'li', link_to( 'Edit', beat_edit_url( :beat => beat.guid ) ) ) %>
 		<li>
-			<%= form_for beat, :url => { :controller => 'beat', :action => 'delete', :beat => beat } do |f| %>
+			<%= form_for beat, :url => { :controller => 'beat', :action => 'delete', :beat => beat.guid } do |f| %>
 				<%= submit_tag( 'Delete', data: { confirm: 'Are you sure?' } ) %>
 			<% end %>
 		</li>

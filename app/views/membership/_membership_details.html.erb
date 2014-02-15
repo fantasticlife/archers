@@ -2,11 +2,11 @@
 	<tbody>
 		<tr>
 			<%= content_tag( 'th', 'Character:' ) %>
-			<%= content_tag( 'td', link_to( membership_details.character.name, character_show_url( :character => membership_details.character ) ) ) %>
+			<%= content_tag( 'td', link_to( membership_details.character.name, character_show_url( :character => membership_details.character.guid ) ) ) %>
 		</tr>
 		<tr>
 			<%= content_tag( 'th', 'Group:' ) %>
-			<%= content_tag( 'td', link_to( membership_details.group.label, group_show_url( :group => membership_details.group ) ) ) %>
+			<%= content_tag( 'td', link_to( membership_details.group.label, group_show_url( :group => membership_details.group.guid ) ) ) %>
 		</tr>
 		<% if membership_details.membership_role -%>
 			<tr>

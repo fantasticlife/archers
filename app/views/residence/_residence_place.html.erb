@@ -1,10 +1,10 @@
 <li>
-	<%= content_tag( 'h3', link_to( residence_place.place.title, place_show_url( :place => residence_place.place ) ) ) %>
+	<%= content_tag( 'h3', link_to( residence_place.place.title, place_show_url( :place => residence_place.place.guid ) ) ) %>
 	<%= content_tag( 'p', residence_place.dates ) unless residence_place.dates.empty? %>
 	<ul class="cm buttons">
-		<%= content_tag( 'li', link_to( 'Edit', residence_edit_url( :residence => residence_place ) ) ) %>
+		<%= content_tag( 'li', link_to( 'Edit', residence_edit_url( :residence => residence_place.guid ) ) ) %>
 		<li>
-			<%= form_for residence_place, :url => { :controller => 'residence', :action => 'delete', :residence => residence_place } do |f| %>
+			<%= form_for residence_place, :url => { :controller => 'residence', :action => 'delete', :residence => residence_place.guid } do |f| %>
 				<%= submit_tag( 'Delete', data: { confirm: 'Are you sure?' } ) %>
 			<% end %>
 		</li>

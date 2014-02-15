@@ -1,6 +1,7 @@
 class Actor < ActiveRecord::Base
   attr_accessible :given_name, :middle_name, :family_name, :date_of_birth, :date_of_death, :note
   
+  before_save :assign_guid
   before_destroy :destroy_associations
   
   has_many :castings,
@@ -17,6 +18,10 @@ class Actor < ActiveRecord::Base
 
 
 private
+  def assign_guid
+    self.guid = SecureRandom.uuid unless self.guid
+  end
+  
   def destroy_associations
     self.castings.destroy_all
   end

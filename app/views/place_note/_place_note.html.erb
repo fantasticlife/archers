@@ -2,9 +2,9 @@
 	<%= content_tag( 'h3', place_note.date.strftime( '%d %B %Y' ) ) if place_note.date %>
 	<%= content_tag( 'p', place_note.note ) %>
 	<ul class="cm buttons">
-		<%= content_tag( 'li', link_to( 'Edit', place_note_edit_url( :note => place_note ) ) ) %>
+		<%= content_tag( 'li', link_to( 'Edit', place_note_edit_url( :note => place_note.guid ) ) ) %>
 		<li>
-			<%= form_for place_note, :url => { :controller => 'place_note', :action => 'delete', :note => place_note } do |f| %>
+			<%= form_for place_note, :url => { :controller => 'place_note', :action => 'delete', :note => place_note.guid } do |f| %>
 				<%= submit_tag( 'Delete', data: { confirm: 'Are you sure?' } ) %>
 			<% end %>
 		</li>

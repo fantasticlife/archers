@@ -1,6 +1,8 @@
 class Membership < ActiveRecord::Base
   attr_accessible :character_id, :group_id, :membership_role_id, :start_date, :end_date
   
+  before_save :assign_guid
+  
   belongs_to :character
   belongs_to :group
   belongs_to :membership_role
@@ -17,5 +19,12 @@ class Membership < ActiveRecord::Base
       display_dates = ''
     end
     display_dates
+  end
+
+
+
+private
+  def assign_guid
+    self.guid = SecureRandom.uuid unless self.guid
   end
 end

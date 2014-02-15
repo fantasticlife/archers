@@ -1,0 +1,24 @@
+<%= render :partial => 'shared/error_message', :object => @universe %>
+
+<table>
+	<tbody>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Title:', :for => 'universe_title' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_field 'title', :maxlength => 255 ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Short synopsis:', :for => 'universe_short_synopsis' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_field 'short_synopsis', :maxlength => 255 ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Years from now:', :for => 'universe_years_from_now' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_field 'years_from_now', :maxlength => 255 ) ) %>
+		</tr>
+	</tbody>
+</table>

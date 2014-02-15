@@ -1,6 +1,8 @@
 class CharacterName < ActiveRecord::Base
   attr_accessible :character_id, :old_name, :new_name, :date, :note, :known_as
   
+  before_save :assign_guid
+  
   belongs_to :character
   
   def display_title
@@ -17,5 +19,12 @@ class CharacterName < ActiveRecord::Base
     else
       'Not known as this.'
     end
+  end
+
+
+
+private
+  def assign_guid
+    self.guid = SecureRandom.uuid unless self.guid
   end
 end

@@ -29,16 +29,22 @@
 				<%= content_tag( 'td', character_details.age( @fictional_date ) ) %>
 			</tr>
 		<% end -%>
+		<% if character_details.place_of_birth -%>
+			<tr>
+				<%= content_tag( 'th', "Place of birth:" ) %>
+				<%= render :partial => 'place_of_birth', :object => character_details.birth_place %>
+			</tr>
+		<% end -%>
 		<% if character_details.date_of_death -%>
 			<tr>
 				<%= content_tag( 'th', 'Date of death:' ) %>
 				<%= content_tag( 'td', character_details.date_of_death.strftime( '%d %B %Y' ) ) %>
 			</tr>
 		<% end -%>
-		<% if character_details.place_of_birth -%>
+		<% if character_details.place_of_death -%>
 			<tr>
-				<%= content_tag( 'th', "Place of birth:" ) %>
-				<%= render :partial => 'place_of_birth', :object => character_details.birth_place %>
+				<%= content_tag( 'th', "Place of death:" ) %>
+				<%= render :partial => 'place_of_death', :object => character_details.death_place %>
 			</tr>
 		<% end -%>
 		<% if character_details.known_as -%>

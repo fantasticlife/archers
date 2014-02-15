@@ -1,6 +1,7 @@
 class Scene < ActiveRecord::Base
   attr_accessible :episode_id, :segment_position, :segment_offset_start, :segment_duration, :direction, :event_title, :event_date, :event_date_format, :event_time_of_day, :event_short_synopsis, :event_long_synopsis, :storyline_ids, :character_ids, :place_ids, :relationship_ids
   
+  before_save :assign_guid
   before_destroy :destroy_associations
   
   # associations with doctor who models just for migration
@@ -138,6 +139,10 @@ class Scene < ActiveRecord::Base
   
   
 private
+  def assign_guid
+    self.guid = SecureRandom.uuid unless self.guid
+  end
+  
   def destroy_associations
     self.scenes_storylines.destroy_all
     self.involvements.destroy_all

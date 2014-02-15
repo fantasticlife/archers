@@ -1,10 +1,10 @@
 <li>
-	<%= content_tag( 'h3', link_to( casting_actor.actor.name, actor_show_url( :actor => casting_actor.actor ) ) ) %>
+	<%= content_tag( 'h3', link_to( casting_actor.actor.name, actor_show_url( :actor => casting_actor.actor.guid ) ) ) %>
 	<%= content_tag( 'p', casting_actor.dates ) %>
 	<ul class="cm buttons">
-		<%= content_tag( 'li', link_to( 'Edit', casting_edit_url( :casting => casting_actor ) ) ) %>
+		<%= content_tag( 'li', link_to( 'Edit', casting_edit_url( :casting => casting_actor.guid ) ) ) %>
 		<li>
-			<%= form_for casting_actor, :url => { :controller => 'casting', :action => 'delete', :casting => casting_actor } do |f| %>
+			<%= form_for casting_actor, :url => { :controller => 'casting', :action => 'delete', :casting => casting_actor.guid } do |f| %>
 				<%= submit_tag( 'Delete', data: { confirm: 'Are you sure?' } ) %>
 			<% end %>
 		</li>

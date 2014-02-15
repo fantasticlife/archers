@@ -7,26 +7,23 @@ class EpisodeController < ApplicationController
     @page_title = 'Episodes'
     @section = 'episode'
   end
-  
   def show
     episode = params[:episode]
-    @episode = Episode.find( episode )
+    @episode = Episode.find_by_guid( episode )
     @page_title = @episode.display_title
     @section = 'episode'
   end
-  
   def new
     @episode = Episode.new
     get_form_dependencies
     @page_title = "Add a new episode"
     @section = 'episode'
   end
-  
   def create
     @episode = Episode.new( params[:episode] )
     if @episode.save
       flash[:notice] = "Episode created"
-      redirect_to episode_show_url( :episode => @episode )
+      redirect_to episode_show_url( :episode => @episode.guid )
     else
       @page_title = "Add a new episode"
       @section = 'episode'
@@ -34,32 +31,29 @@ class EpisodeController < ApplicationController
       render :action => 'new'
     end
   end
-  
   def edit
     episode = params[:episode]
-    @episode = Episode.find( episode )
+    @episode = Episode.find_by_guid( episode )
     get_form_dependencies
     @page_title = "#{@episode.display_title} - Edit"
     @section = 'episode'
   end
-  
   def update
     episode_to_update = params[:episode_to_update]
-    @episode = Episode.find( episode_to_update )
+    @episode = Episode.find_by_guid( episode_to_update )
     if @episode.update_attributes( params[:episode] )
       flash[:notice] = "Episode details updated"
-      redirect_to episode_show_url( :episode => @episode )
+      redirect_to episode_show_url( :episode => @episode.guid )
     else
-      @page_title = "#{@episode.tx_date.strftime( DATE_FORMAT )} - Edit"
+      @page_title = "#{@episode.display_title} - Edit"
       @section = 'episode'
       get_form_dependencies
       render( :action => 'edit' )
     end
   end
-
   def delete
     episode = params[:episode]
-    @episode = Episode.find( episode )
+    @episode = Episode.find_by_guid( episode )
     @episode.destroy
     flash[:notice] = "Episode deleted"
     redirect_to episode_list_url

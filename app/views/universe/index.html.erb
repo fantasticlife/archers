@@ -1,0 +1,17 @@
+<% if @universe -%>
+	<div class="section">
+		<%= content_tag( 'h1', "#{@universe.title} #{content_tag( 'span', link_to( 'Edit', universe_edit_url( :universe => @universe.guid ) ) ) }".html_safe ) %>
+		<%= render :partial => 'universe_details', :object => @universe %>
+	</div>
+	<div class="section">
+		<%= content_tag( 'h2', 'Programmes' ) %>
+		<%= render :partial => 'programmes', :object => @universe.universe_tleos %>
+		<%= content_tag( 'h3', 'Add programme' ) %>
+		<%= content_tag( 'p', link_to( 'Add a new programme', tleo_new_url ) ) %>
+	</div>
+<% else -%>
+	<div class="section">
+		<%= content_tag( 'h1', 'Fictional universe' ) %>
+		<%= content_tag( 'p', link_to( 'Add details', universe_new_url ) ) %>
+	</div>
+<% end -%>

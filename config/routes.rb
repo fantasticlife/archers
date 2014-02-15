@@ -207,6 +207,20 @@ Homefront::Application.routes.draw do
   match '/crews/:crew/edit' => 'crew#edit', :as => :crew_edit
   match '/crews/:crew_to_update/update' => 'crew#update', :as => :crew_update
   match '/crews/:crew/delete' => 'crew#delete', :as => :crew_delete
+  
+  match '/universes' => 'universe#index', :as => :universe_list
+  match '/universes/new' => 'universe#new', :as => :universe_new
+  match '/universes/create' => 'universe#create', :as => :universe_create
+  match '/universes/:universe' => 'universe#show', :as => :universe_show
+  match '/universes/:universe/edit' => 'universe#edit', :as => :universe_edit
+  match '/universes/:universe_to_update/update' => 'universe#update', :as => :universe_update
+  
+  match '/tleos' => 'tleo#index', :as => :tleo_list
+  match '/tleos/new' => 'tleo#new', :as => :tleo_new
+  match '/tleos/create' => 'tleo#create', :as => :tleo_create
+  match '/tleos/:tleo' => 'tleo#show', :as => :tleo_show
+  match '/tleos/:tleo/delete' => 'tleo#delete', :as => :tleo_delete
+  
 
   # See how all your routes lay out with "rake routes"
 

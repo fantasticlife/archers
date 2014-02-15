@@ -2,11 +2,11 @@
 	<tbody>
 		<tr>
 			<%= content_tag( 'th', 'Character:' ) %>
-			<%= content_tag( 'td', link_to( casting_details.character.name, character_show_url( :character => casting_details.character ) ) ) %>
+			<%= content_tag( 'td', link_to( casting_details.character.name, character_show_url( :character => casting_details.character.guid ) ) ) %>
 		</tr>
 		<tr>
 			<%= content_tag( 'th', 'Actor:' ) %>
-			<%= content_tag( 'td', link_to( casting_details.actor.name, actor_show_url( :actor => casting_details.actor ) ) ) %>
+			<%= content_tag( 'td', link_to( casting_details.actor.name, actor_show_url( :actor => casting_details.actor.guid ) ) ) %>
 		</tr>
 		<% if casting_details.start_date -%>
 			<tr>

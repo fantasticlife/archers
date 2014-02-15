@@ -1,4 +1,4 @@
 <li>
-	<%= content_tag( 'h3', "#{link_to( relationship_redux.from_character.name, character_show_url( :character => relationship_redux.from_character ))} #{relationship_redux.relationship_type.label.downcase} of #{link_to( relationship_redux.to_character.name, character_show_url( :character => relationship_redux.to_character ) )}".html_safe ) %>
+	<%= content_tag( 'h3', "#{link_to( relationship_redux.from_character.name, character_show_url( :character => relationship_redux.from_character.guid ))} #{relationship_redux.relationship_type.label.downcase} of #{link_to( relationship_redux.to_character.name, character_show_url( :character => relationship_redux.to_character.guid ) )}".html_safe ) %>
 	<%= content_tag( 'p', relationship_redux.dates ) unless relationship_redux.dates.empty? %>
 </li>

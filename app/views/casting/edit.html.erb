@@ -1,8 +1,8 @@
 <div class="section">
-	<%= content_tag( 'h1', "#{link_to( @character.name, character_show_url( :character => @character ) )} - Edit Actor".html_safe ) %>
+	<%= content_tag( 'h1', "#{link_to( @character.name, character_show_url( :character => @character.guid ) )} - Edit Actor".html_safe ) %>
 </div>
 
-<%= form_for @casting, :url => { :action => 'update', :casting_to_update => @casting } do |f| %>
+<%= form_for @casting, :url => { :action => 'update', :casting_to_update => @casting.guid } do |f| %>
 	<%= render :partial => 'form', :object => f %>
   	<%= submit_tag( 'Update', :class => 'submit' ) %>
 <% end %>

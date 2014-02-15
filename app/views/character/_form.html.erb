@@ -36,15 +36,21 @@
 			</tr>
 			<tr>
 				<th>
+					<%= content_tag( 'label', 'Place of birth:', :for => 'character_place_of_birth' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :place_of_birth, @places.collect {|p| [p.title, p.id]}, :include_blank => true, :multiple => false ) ) %>
+			</tr>
+			<tr>
+				<th>
 					<%= content_tag( 'label', 'Date of death:', :for => 'character_date_of_death_1i' ) %>
 				</th>
 				<%= content_tag( 'td', form.date_select( 'date_of_death', :start_year => 1800, :include_blank => true ), :class => 'date-select' ) %>
 			</tr>
 			<tr>
 				<th>
-					<%= content_tag( 'label', 'Place of birth:', :for => 'character_place_of_birth' ) %>
+					<%= content_tag( 'label', 'Place of death:', :for => 'character_place_of_death' ) %>
 				</th>
-				<%= content_tag( 'td', form.select( :place_of_birth, @places.collect {|p| [p.title, p.id]}, :include_blank => true, :multiple => false ) ) %>
+				<%= content_tag( 'td', form.select( :place_of_death, @places.collect {|p| [p.title, p.id]}, :include_blank => true, :multiple => false ) ) %>
 			</tr>
 			<tr>
 				<th>

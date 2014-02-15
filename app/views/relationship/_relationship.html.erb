@@ -1,10 +1,10 @@
 <li>
-	<%= content_tag( 'h3', "#{link_to( relationship.from_character.name, character_show_url( :character => relationship.from_character ))} #{relationship.relationship_type.label.downcase} of #{link_to( relationship.to_character.name, character_show_url( :character => relationship.to_character ) )}".html_safe ) %>
+	<%= content_tag( 'h3', "#{link_to( relationship.from_character.name, character_show_url( :character => relationship.from_character.guid ))} #{relationship.relationship_type.label.downcase} of #{link_to( relationship.to_character.name, character_show_url( :character => relationship.to_character.guid ) )}".html_safe ) %>
 	<%= content_tag( 'p', relationship.dates ) unless relationship.dates.empty? %>
 	<ul class="cm buttons">
-		<%= content_tag( 'li', link_to( 'Edit', relationship_edit_url( :relationship => relationship ) ) ) %>
+		<%= content_tag( 'li', link_to( 'Edit', relationship_edit_url( :relationship => relationship.guid ) ) ) %>
 		<li>
-			<%= form_for relationship, :url => { :controller => 'relationship', :action => 'delete', :relationship => relationship } do |f| %>
+			<%= form_for relationship, :url => { :controller => 'relationship', :action => 'delete', :relationship => relationship.guid } do |f| %>
 				<%= submit_tag( 'Delete', data: { confirm: 'Are you sure?' } ) %>
 			<% end %>
 		</li>

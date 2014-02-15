@@ -2,11 +2,11 @@
 	<tbody>
 		<tr>
 			<%= content_tag( 'th', 'Character:' ) %>
-			<%= content_tag( 'td', link_to( residence_details.character.name, character_show_url( :character => residence_details.character ) ) ) %>
+			<%= content_tag( 'td', link_to( residence_details.character.name, character_show_url( :character => residence_details.character.guid ) ) ) %>
 		</tr>
 		<tr>
 			<%= content_tag( 'th', 'Place:' ) %>
-			<%= content_tag( 'td', link_to( residence_details.place.title, place_show_url( :place => residence_details.place ) ) ) %>
+			<%= content_tag( 'td', link_to( residence_details.place.title, place_show_url( :place => residence_details.place.guid ) ) ) %>
 		</tr>
 		<% if residence_details.start_date -%>
 			<tr>
