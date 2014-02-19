@@ -1,5 +1,5 @@
 class Character < ActiveRecord::Base
-  attr_accessible :pid, :name, :lookup_label, :character_type_id, :gender, :date_of_birth, :place_of_birth, :strapline, :short_synopsis, :long_synopsis, :notes, :major_storyline_ids, :minor_storyline_ids, :known_as, :speaks, :date_of_death, :place_of_death, :character_title_id, :character_appearance_type_id, :occupation_ids
+  attr_accessible :pid, :name, :lookup_label, :character_type_id, :gender, :date_of_birth, :place_of_birth, :strapline, :short_synopsis, :long_synopsis, :notes, :major_storyline_ids, :minor_storyline_ids, :known_as, :speaks, :date_of_death, :place_of_death, :character_title_id, :character_appearance_type_id, :occupation_ids, :artefact_ids
   
   attr_accessor :source_index, :target_index, :value
   
@@ -36,6 +36,10 @@ class Character < ActiveRecord::Base
     :order => 'start_date'
   has_many :residences,
     :order => 'start_date'
+  has_many :belongings
+  has_many :artefacts,
+    :through => :belongings,
+    :order => 'title'
     
   validates :name, presence: true, length: {maximum: 255, :message => 'must be 255 characters or less' }
   
@@ -136,5 +140,6 @@ private
     end
     self.memberships.destroy_all
     self.residences.destroy_all
+    self.belongings.destroy_all
   end
 end

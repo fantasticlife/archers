@@ -1,0 +1,7 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{@character.name} - Occupations" ) %>
+</div>
+
+<ol>
+	<%= render :partial => 'character_occupation_occupation', :collection => @character.characters_occupations %>
+</ol>

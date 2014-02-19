@@ -1,0 +1,26 @@
+<%= render :partial => 'shared/error_message', :object => @belonging %>
+
+<%= form.hidden_field( :character_id ) %>
+
+<table class="section">
+	<tbody>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Artefact:', :for => 'belonging_artefact_id' ) %>
+			</th>
+			<%= content_tag( 'td', form.select( :artefact_id, @artefacts.collect {|a| [a.title, a.id]}, {}, :multiple => false ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Owned from:', :for => 'belonging_start_date_1i' ) %>
+			</th>
+			<%= content_tag( 'td', form.date_select( 'start_date', :start_year => 1800, :include_blank => true ), :class => 'date-select' ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Owned to:', :for => 'belonging_end_date_1i' ) %>
+			</th>
+			<%= content_tag( 'td', form.date_select( 'end_date', :start_year => 1800, :include_blank => true ), :class => 'date-select' ) %>
+		</tr>
+	</tbody>
+</table>

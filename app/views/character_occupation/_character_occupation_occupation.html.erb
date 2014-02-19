@@ -1,0 +1,12 @@
+<li>
+	<%= content_tag( 'h3', link_to( character_occupation_occupation.occupation.label, occupation_show_url( :occupation => character_occupation_occupation.occupation.guid ) ) ) %>
+	<%= content_tag( 'p', character_occupation_occupation.dates ) unless character_occupation_occupation.dates.empty? %>
+	<ul class="cm buttons">
+		<%= content_tag( 'li', link_to( 'Edit', character_occupation_edit_url( :character_occupation => character_occupation_occupation.guid ) ) ) %>
+		<li>
+			<%= form_for character_occupation_occupation, :url => { :controller => 'character_occupation', :action => 'delete', :character_occupation => character_occupation_occupation.guid } do |f| %>
+				<%= submit_tag( 'Delete', data: { confirm: 'Are you sure?' } ) %>
+			<% end %>
+		</li>
+	</ul>
+</li>

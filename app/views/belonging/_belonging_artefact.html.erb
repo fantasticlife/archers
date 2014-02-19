@@ -1,0 +1,12 @@
+<li>
+	<%= content_tag( 'h3', link_to( belonging_artefact.artefact.title, artefact_show_url( :artefact => belonging_artefact.artefact.guid ) ) ) %>
+	<%= content_tag( 'p', belonging_artefact.dates ) unless belonging_artefact.dates.empty? %>
+	<ul class="cm buttons">
+		<%= content_tag( 'li', link_to( 'Edit', belonging_edit_url( :belonging => belonging_artefact.guid ) ) ) %>
+		<li>
+			<%= form_for belonging_artefact, :url => { :controller => 'belonging', :action => 'delete', :belonging => belonging_artefact.guid } do |f| %>
+				<%= submit_tag( 'Delete', data: { confirm: 'Are you sure?' } ) %>
+			<% end %>
+		</li>
+	</ul>
+</li>

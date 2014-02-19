@@ -1,0 +1,4 @@
+<li>
+	<%= content_tag( 'h3', link_to( character_occupation_character.character.name, character_show_url( :character => character_occupation_character.character.guid ) ) ) %>
+	<%= content_tag( 'p', character_occupation_character.dates ) unless character_occupation_character.dates.empty? %>
+</li>

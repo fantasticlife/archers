@@ -1,0 +1,12 @@
+<div class="section">
+	<%= content_tag( 'h2', 'Belongings:' ) %>
+	<% if belongings.empty? -%>
+		<%= content_tag( 'p', 'No belongings to show.' ) %>
+	<% else -%>
+		<ol>
+			<%= render :partial => 'belonging/belonging_artefact', :collection => belongings %>
+		</ol>
+	<% end -%>
+	<%= content_tag( 'h3', 'Add new' ) %>
+	<%= content_tag( 'p', link_to( 'Add a new belonging', belonging_new_url ) ) %>
+</div>

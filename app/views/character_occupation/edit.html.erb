@@ -1,0 +1,8 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{link_to( @character.name, character_show_url )} - Edit occupation".html_safe ) %>
+</div>
+
+<%= form_for @character_occupation, :url => { :action => 'update', :character_occupation_to_update => @character_occupation.guid } do |f| %>
+	<%= render :partial => 'form', :object => f %>
+  	<%= submit_tag( 'Update', :class => 'submit' ) %>
+<% end %>

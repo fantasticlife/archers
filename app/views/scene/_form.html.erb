@@ -92,6 +92,12 @@
 			</tr>
 			<tr>
 				<th>
+					<%= content_tag( 'label', 'Artefacts:', :for => 'scene_artefact_ids' ) %>
+				</th>
+				<%= content_tag( 'td', form.select( :artefact_ids, @artefacts.collect {|a| [a.title, a.id]}, {}, :multiple => true, :class => 'multiselect' ) ) %>
+			</tr>
+			<tr>
+				<th>
 					<%= content_tag( 'label', 'Locations:', :for => 'scene_place_ids' ) %>
 				</th>
 				<%= content_tag( 'td', form.select( :place_ids, @places.collect {|p| [p.title, p.id]}, {}, :multiple => true, :class => 'multiselect' ) ) %>

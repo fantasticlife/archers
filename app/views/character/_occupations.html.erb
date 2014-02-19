@@ -1,0 +1,12 @@
+<div class="section">
+	<%= content_tag( 'h2', 'Occupations:' ) %>
+	<% if occupations.empty? -%>
+		<%= content_tag( 'p', 'No occupations to show.' ) %>
+	<% else -%>
+		<ol>
+			<%= render :partial => 'character_occupation/character_occupation_occupation', :collection => occupations %>
+		</ol>
+	<% end -%>
+	<%= content_tag( 'h3', 'Add new' ) %>
+	<%= content_tag( 'p', link_to( 'Add a new occupation', character_occupation_new_url ) ) %>
+</div>

@@ -1,10 +1,10 @@
-class CharactersOccupation < ActiveRecord::Base
-  attr_accessible :character_id, :occupation_id, :start_date, :end_date
+class Belonging < ActiveRecord::Base
+  attr_accessible :character_id, :artefact_id, :start_date, :end_date
   
   before_save :assign_guid
   
   belongs_to :character
-  belongs_to :occupation
+  belongs_to :artefact
 
   def dates
     dates = ''
@@ -17,9 +17,9 @@ class CharactersOccupation < ActiveRecord::Base
     end
     dates
   end
-
-
-
+  
+  
+  
 private
   def assign_guid
     self.guid = SecureRandom.uuid unless self.guid

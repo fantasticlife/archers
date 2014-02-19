@@ -1,0 +1,8 @@
+<div class="section">
+	<%= content_tag( 'h1', "Add a new artefact" ) %>
+</div>
+
+<%= form_for @artefact, :url => { :action => 'create' } do |f| %>
+	<%= render :partial => 'form', :object => f %>
+  	<%= submit_tag( 'Add artefact', :class => 'submit' ) %>
+<% end %>

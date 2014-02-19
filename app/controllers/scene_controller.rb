@@ -76,6 +76,10 @@ private
       :all,
       :order => 'name'
     )
+    @artefacts = Artefact.find( 
+      :all,
+      :order => 'title'
+    )
     @places = Place.find(
       :all,
       :order => 'title'
