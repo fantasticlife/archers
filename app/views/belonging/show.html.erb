@@ -1,0 +1,6 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{link_to( @character.name, character_show_url)} - #{@belonging.artefact.title} #{content_tag( 'span', link_to( 'Edit', belonging_edit_url))}".html_safe ) %>
+</div>
+
+<%= content_tag( 'h2', link_to( @belonging.artefact.title, artefact_show_url( :artefact => @belonging.artefact.guid ) ) ) %>
+<%= content_tag( 'p', @belonging.dates ) if @belonging.dates %>

@@ -15,6 +15,8 @@
 <%= render :partial => 'names', :object => @character.character_names %>
 <%= render :partial => 'relationships', :object => @character.relationships unless @character.relationships.empty? %>
 <%= render :partial => 'memberships', :object => @character.memberships %>
+<%= render :partial => 'occupations', :object => @character.characters_occupations %>
+<%= render :partial => 'belongings', :object => @character.belongings %>
 <%= render :partial => 'residences', :object => @character.residences %>
 <%= render :partial => 'major_storylines', :object => @character.major_storylines unless @character.major_storylines.empty? %>
 <%= render :partial => 'minor_storylines', :object => @character.minor_storylines unless @character.minor_storylines.empty? %>

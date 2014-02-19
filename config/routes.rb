@@ -130,6 +130,30 @@ Homefront::Application.routes.draw do
   match '/characters/:character/residences/:residence_to_update/update' => 'residence#update', :as => :residence_update
   match '/characters/:character/residences/:residence/delete' => 'residence#delete', :as => :residence_delete
   
+  match '/characters/:character/occupations' => 'character_occupation#index', :as => :character_occupation_list
+  match '/characters/:character/occupations/new' => 'character_occupation#new', :as => :character_occupation_new
+  match '/characters/:character/occupations/create' => 'character_occupation#create', :as => :character_occupation_create
+  match '/characters/:character/occupations/:character_occupation' => 'character_occupation#show', :as => :character_occupation_show
+  match '/characters/:character/occupations/:character_occupation/edit' => 'character_occupation#edit', :as => :character_occupation_edit
+  match '/characters/:character/occupations/:character_occupation_to_update/update' => 'character_occupation#update', :as => :character_occupation_update
+  match '/characters/:character/occupations/:character_occupation/delete' => 'character_occupation#delete', :as => :character_occupation_delete
+  
+  match '/characters/:character/belongings' => 'belonging#index', :as => :belonging_list
+  match '/characters/:character/belongings/new' => 'belonging#new', :as => :belonging_new
+  match '/characters/:character/belongings/create' => 'belonging#create', :as => :belonging_create
+  match '/characters/:character/belongings/:belonging' => 'belonging#show', :as => :belonging_show
+  match '/characters/:character/belongings/:belonging/edit' => 'belonging#edit', :as => :belonging_edit
+  match '/characters/:character/belongings/:belonging_to_update/update' => 'belonging#update', :as => :belonging_update
+  match '/characters/:character/belongings/:belonging/delete' => 'belonging#delete', :as => :belonging_delete
+  
+  match '/artefacts' => 'artefact#index', :as => :artefact_list
+  match '/artefacts/new' => 'artefact#new', :as => :artefact_new
+  match '/artefacts/create' => 'artefact#create', :as => :artefact_create
+  match '/artefacts/:artefact' => 'artefact#show', :as => :artefact_show
+  match '/artefacts/:artefact/edit' => 'artefact#edit', :as => :artefact_edit
+  match '/artefacts/:artefact_to_update/update' => 'artefact#update', :as => :artefact_update
+  match '/artefacts/:artefact/delete' => 'artefact#delete', :as => :artefact_delete
+  
   match '/places' => 'place#index', :as => :place_list
   match '/places/new' => 'place#new', :as => :place_new
   match '/places/create' => 'place#create', :as => :place_create

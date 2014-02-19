@@ -1,5 +1,5 @@
 class Scene < ActiveRecord::Base
-  attr_accessible :episode_id, :segment_position, :segment_offset_start, :segment_duration, :direction, :event_title, :event_date, :event_date_format, :event_time_of_day, :event_short_synopsis, :event_long_synopsis, :storyline_ids, :character_ids, :place_ids, :relationship_ids
+  attr_accessible :episode_id, :segment_position, :segment_offset_start, :segment_duration, :direction, :event_title, :event_date, :event_date_format, :event_time_of_day, :event_short_synopsis, :event_long_synopsis, :storyline_ids, :character_ids, :artefact_ids, :place_ids, :relationship_ids
   
   before_save :assign_guid
   before_destroy :destroy_associations
@@ -24,6 +24,10 @@ class Scene < ActiveRecord::Base
   has_many :relationship_reveals
   has_many :relationships,
     :through => :relationship_reveals
+  has_many :usages
+  has_many :artefacts,
+    :through => :usages,
+    :order => 'title'
     
   #validates :segment_position, :presence => true
   
@@ -48,10 +52,10 @@ class Scene < ActiveRecord::Base
         display_title = 'Episode ' + self.episode.position
       end
     end
-    if self.event_title
+    if self.event_title and !self.event_title.blank?
       display_title = display_title + ' - ' unless display_title.empty?
       display_title = display_title + self.event_title
-    elsif self.segment_position
+    elsif self.segment_position and !self.segment_position.blank?
       display_title = display_title + ' - ' unless display_title.empty?
       display_title = display_title + 'Scene ' + self.segment_position.to_s
     end
@@ -148,5 +152,6 @@ private
     self.involvements.destroy_all
     self.locations.destroy_all
     self.relationship_reveals.destroy_all
+    self.usages.destroy_all
   end
 end

@@ -1,10 +1,22 @@
 class CharactersOccupation < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :character_id, :occupation_id, :start_date, :end_date
   
   before_save :assign_guid
   
   belongs_to :character
   belongs_to :occupation
+
+  def dates
+    dates = ''
+    if self.start_date and self.end_date
+      dates = dates + self.start_date.strftime( '%d %B %Y' ) + ' - ' + self.end_date.strftime( '%d %B %Y' )
+    elsif self.start_date
+      dates = dates + self.start_date.strftime( '%d %B %Y' ) + ' - '
+    elsif self.end_date
+      dates = dates + ' - ' + self.end_date.strftime( '%d %B %Y' )
+    end
+    dates
+  end
 
 
 

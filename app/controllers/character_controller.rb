@@ -185,5 +185,9 @@ private
       :all,
       :order => 'label'
     )
+    @artefacts = Artefact.find(
+      :all,
+      :order => 'title'
+    )
   end
 end

@@ -82,5 +82,6 @@
 
 <%= render :partial => 'scene/storylines', :object => details unless details.storylines.empty? %>
 <%= render :partial => 'scene/characters', :object => details unless details.characters.empty? %>
+<%= render :partial => 'scene/artefacts', :object => details unless details.artefacts.empty? %>
 <%= render :partial => 'scene/places', :object => details unless details.places.empty? %>
 <%= render :partial => 'scene/relationship_reveals', :object => details unless details.relationships.empty? %>

@@ -1,0 +1,14 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{@artefact.title} #{content_tag( 'span', link_to( 'Edit', artefact_edit_url))}".html_safe ) %>
+</div>
+
+<%= render :partial => 'artefact_details', :object => @artefact %>
+<%= render :partial => 'owners', :object => @artefact.belongings unless @artefact.belongings.empty? %>
+<%= render :partial => 'scenes', :object => @artefact.scenes unless @artefact.scenes.empty? %>
+
+<div class="section">
+	<%= content_tag( 'h2', 'Delete' ) %>
+	<%= form_for @artefact, :url => { :action => 'delete' } do |f| %>
+		<%= submit_tag( 'Delete artefact', data: { confirm: 'Are you sure?' } ) %>
+	<% end %>
+</div>
