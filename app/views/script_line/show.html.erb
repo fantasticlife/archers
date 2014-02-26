@@ -1,0 +1,4 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{link_to( @scene.display_title_with_episode, scene_show_url )} - Line".html_safe ) %>
+	<%= render :partial => 'script_line_details', :object => @script_line %>
+</div>

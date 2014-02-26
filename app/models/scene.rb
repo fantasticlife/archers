@@ -20,7 +20,8 @@ class Scene < ActiveRecord::Base
   has_many :places,
     :through => :locations,
     :order => 'title'
-  has_many :script_lines  
+  has_many :script_lines,
+    :order => 'position'
   has_many :relationship_reveals
   has_many :relationships,
     :through => :relationship_reveals

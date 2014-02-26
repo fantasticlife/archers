@@ -1,0 +1,22 @@
+<table>
+	<tbody>
+		<tr>
+			<%= content_tag( 'th', 'Line type:' ) %>
+			<%= content_tag( 'td', script_line_details.line_type ) %>
+		</tr>
+		<tr>
+			<%= content_tag( 'th', 'Scene:' ) %>
+			<%= content_tag( 'td', link_to( script_line_details.scene.display_title_with_episode, root_url ) ) %>
+		</tr>
+		<% if script_line_details.character -%>
+			<tr>
+				<%= content_tag( 'th', 'Character:' ) %>
+				<%= content_tag( 'td', link_to( script_line_details.character.name, character_show_url( :character => script_line_details.character.guid ) ) ) %>
+			</tr>
+		<% end -%>
+		<tr>
+			<%= content_tag( 'th', 'Line:' ) %>
+			<%= content_tag( 'td', script_line_details.line ) %>
+		</tr>
+	</tbody>
+</table>

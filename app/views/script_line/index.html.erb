@@ -1,0 +1,15 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{link_to( @scene.display_title_with_episode, scene_show_url )} - Lines".html_safe ) %>
+	<% if @scene.script_lines.empty? -%>
+		<%= content_tag( 'p', 'No script to show.' ) %>
+	<% else -%>
+		<ol>
+			<%= render :partial => 'script_line/script_line_with_edit', :collection => @scene.script_lines %>
+		</ol>
+	<% end -%>
+</div>
+
+<div class="section">
+	<%= content_tag( 'h3', 'Add new' ) %>
+	<%= content_tag( 'p', link_to( 'Add a new line', script_line_new_url ) ) %>
+</div>
