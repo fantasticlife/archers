@@ -10,7 +10,7 @@
 
 <%= render :partial => 'children', :object => @scene unless @scene.children.empty? %>
 
-<%= render :partial => 'script', :object => @scene unless @scene.script_lines.empty? %>
+<%= render :partial => 'script', :object => @scene %>
 
 <div class="section">
 	<%= content_tag( 'h2', 'Delete' ) %>

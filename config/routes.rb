@@ -208,6 +208,14 @@ Homefront::Application.routes.draw do
   match '/scenes/:scene_to_update/update' => 'scene#update', :as => :scene_update
   match '/scenes/:scene/delete' => 'scene#delete', :as => :scene_delete
   
+  match '/scenes/:scene/lines' => 'script_line#index', :as => :script_line_list
+  match '/scenes/:scene/lines/new' => 'script_line#new', :as => :script_line_new
+  match '/scenes/:scene/lines/create' => 'script_line#create', :as => :script_line_create
+  match '/scenes/:scene/lines/:line' => 'script_line#show', :as => :script_line_show
+  match '/scenes/:scene/lines/:line/edit' => 'script_line#edit', :as => :script_line_edit
+  match '/scenes/:scene/lines/:line_to_update/update' => 'script_line#update', :as => :script_line_update
+  match '/scenes/:scene/lines/:line/delete' => 'script_line#delete', :as => :script_line_delete
+  
   match '/actors' => 'actor#index', :as => :actor_list
   match '/actors/new' => 'actor#new', :as => :actor_new
   match '/actors/create' => 'actor#create', :as => :actor_create

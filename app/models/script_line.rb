@@ -1,5 +1,5 @@
 class ScriptLine < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :scene_id, :line_type, :line, :character_id, :position
   
   before_save :assign_guid
   

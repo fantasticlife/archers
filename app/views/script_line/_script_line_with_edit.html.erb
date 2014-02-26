@@ -1,0 +1,19 @@
+<li>
+	<% if script_line_with_edit.line_type == 'stage' -%>
+		<%= content_tag( 'p', script_line_with_edit.line, :class => 'direction' ) %>
+	<% else -%>
+		<p>
+			<%= link_to( script_line_with_edit.character.name, character_show_url( :character => script_line_with_edit.character.guid ) ) %>
+			:
+			<%= script_line_with_edit.line %>
+		</p>
+	<% end -%>
+	<ul class="cm buttons">
+		<%= content_tag( 'li', link_to( 'Edit', script_line_edit_url( :line => script_line_with_edit.guid ) ) ) %>
+		<li>
+			<%= form_for script_line_with_edit, :url => { :controller => 'script_line', :action => 'delete', :line => script_line_with_edit.guid } do |f| %>
+				<%= submit_tag( 'Delete', data: { confirm: 'Are you sure?' } ) %>
+			<% end %>
+		</li>
+	</ul>
+</li>

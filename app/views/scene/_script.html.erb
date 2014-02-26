@@ -1,6 +1,10 @@
 <div class="section">
-	<%= content_tag( 'h2', 'Script' ) %>
-	<ol>
-		<%= render :partial => 'script_line/script_line', :collection => script.script_lines %>
-	</ol>
+	<%= content_tag( 'h2', "Script #{content_tag( 'span', link_to( 'Edit', script_line_list_url, :class => 'edit' ) )}".html_safe ) %>
+	<% if script.script_lines.empty? -%>
+		<%= content_tag( 'p', 'No script to show.' ) %>
+	<% else -%>
+		<ol>
+			<%= render :partial => 'script_line/script_line', :collection => script.script_lines %>
+		</ol>
+	<% end -%>
 </div>

@@ -1,0 +1,7 @@
+<div class="section">
+	<%= content_tag( 'h1', "#{link_to( @scene.display_title_with_episode, scene_show_url )} - Add a new line".html_safe ) %>
+	<%= form_for @script_line, :url => { :action => 'create' } do |f| %>
+		<%= render :partial => 'form', :object => f %>
+	  	<%= submit_tag( 'Add line', :class => 'submit' ) %>
+	<% end %>
+</div>

@@ -1,0 +1,32 @@
+<%= render :partial => 'shared/error_message', :object => @script_line %>
+
+<%= form.hidden_field( :scene_id ) %>
+
+<table class="section">
+	<tbody>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Line type:', :for => 'script_line_line_type' ) %>
+			</th>	
+			<%= content_tag( 'td', form.select( :line_type, [['Stage direction', 'stage'], ['Spoken line', 'line']], :include_blank => false, :multiple => false ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Line:', :for => 'script_line_line' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_area 'line' ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Character:', :for => 'script_line_character_id' ) %>
+			</th>
+			<%= content_tag( 'td', form.select( :character_id, @characters.collect {|c| [c.name, c.id]}, :include_blank => true, :multiple => false ) ) %>
+		</tr>
+		<tr>
+			<th>
+				<%= content_tag( 'label', 'Position:', :for => 'script_line_position' ) %>
+			</th>
+			<%= content_tag( 'td', ( form.text_field 'position', :maxlength => 3 ) ) %>
+		</tr>
+	</tbody>
+</table>
